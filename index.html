@@ -127,16 +127,6 @@
             accent-color: #0047bb;
         }
 
-        @keyframes tickerSlide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .ticker-track {
-            display: flex;
-            width: max-content;
-            animation: tickerSlide 30s linear infinite;
-        }
-
         .logo-frame {
             box-shadow: 0 6px 20px -4px rgba(0, 71, 187, 0.22), 0 0 0 2px rgba(255, 255, 255, 0.95);
         }
@@ -146,9 +136,9 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-mtblue-600 selection:text-white pb-28 md:pb-16">
+<body class="min-h-screen flex flex-col selection:bg-mtblue-600 selection:text-white pb-32 md:pb-20">
 
-    <!-- Top Live Notification Bar -->
+    <!-- Top Announcement Bar (Tanpa Notifikasi Order Berjalan) -->
     <div class="bg-gradient-to-r from-mtblue-900 via-mtblue-800 to-indigo-950 text-white text-[11px] py-2 px-4 shadow-md z-50">
         <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
             <div class="flex items-center gap-2 truncate">
@@ -226,11 +216,18 @@
                 </button>
             </nav>
 
-            <!-- Direct WA Button -->
-            <button onclick="openDirectAdminChat()" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-md shadow-emerald-500/20 shrink-0 active:scale-95">
-                <i class="fab fa-whatsapp text-sm"></i>
-                <span class="hidden sm:inline">Order Manual</span>
-            </button>
+            <!-- Header Actions: Cart + Direct WA -->
+            <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openCartModal()" class="relative px-3 py-2 rounded-xl bg-mtblue-50 hover:bg-mtblue-100 text-mtblue-800 border border-mtblue-200 font-bold text-xs flex items-center gap-1.5 transition active:scale-95" title="Keranjang Belanja">
+                    <i class="fas fa-basket-shopping text-sm text-mtblue-700"></i>
+                    <span class="hidden sm:inline">Keranjang</span>
+                    <span id="headerCartBadge" class="px-1.5 py-0.2 rounded-full bg-mtblue-700 text-white text-[10px] font-extrabold">0</span>
+                </button>
+                <button onclick="openDirectAdminChat()" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-md shadow-emerald-500/20 active:scale-95">
+                    <i class="fab fa-whatsapp text-sm"></i>
+                    <span class="hidden sm:inline">Order Manual</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -253,7 +250,7 @@
                         Katalog Lengkap & <span class="text-transparent bg-clip-text bg-gradient-to-r from-mtblue-700 to-mtlilac-600">Full Garansi Sesuai Durasi</span>
                     </h1>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Pilih varian paket langsung di kartu produk. Seluruh pembelian dijamin <b>Full Garansi selama masa aktif</b> dengan mematuhi <b>S&K tiap aplikasi</b>. Jika ada kendala, estimasi proses pembenahan akun adalah <b>1–3 hari (1–3D)</b>.
+                        Pilih varian paket langsung di kartu produk, bisa langsung pesan satuan atau masukkan ke <b>Keranjang</b> untuk borong sekaligus. Seluruh pembelian dijamin <b>Full Garansi selama masa aktif</b> dengan mematuhi <b>S&K tiap aplikasi</b>. Estimasi proses pembenahan akun kendala adalah <b>1–3 hari (1–3D)</b>.
                     </p>
                 </div>
 
@@ -371,7 +368,7 @@
                     <div class="mb-3">
                         <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1.5">Pilih Cepat Kendala:</label>
                         <div class="flex flex-wrap gap-1.5">
-                            <button type="button" onclick="selectClaimIssue('Akun Terkena Back Free (BF)')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-mtblue-50 hover:text-mtblue-700 font-semibold text-slate-700 border border-slate-200 transition">Akun Back Free (BF)</button>
+                            <button type="button" onclick="selectClaimIssue('Akun Terkena Back Free - BF')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-mtblue-50 hover:text-mtblue-700 font-semibold text-slate-700 border border-slate-200 transition">Akun Back Free (BF)</button>
                             <button type="button" onclick="selectClaimIssue('Akun Tiba-tiba Logout / Sandi Salah')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-mtblue-50 hover:text-mtblue-700 font-semibold text-slate-700 border border-slate-200 transition">Logout / Sandi Salah</button>
                             <button type="button" onclick="selectClaimIssue('Terkena Limit Layar / Household')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-mtblue-50 hover:text-mtblue-700 font-semibold text-slate-700 border border-slate-200 transition">Limit Layar / Household</button>
                         </div>
@@ -433,12 +430,12 @@
                             </div>
                             
                             <div class="grid grid-cols-3 sm:grid-cols-6 gap-1.5 mb-2">
-                                <button type="button" onclick="setDurationPreset(30, '1 Bulan')" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-mtblue-800 text-white border border-mtblue-800 transition">1 Bln</button>
-                                <button type="button" onclick="setDurationPreset(90, '3 Bulan')" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">3 Bln</button>
-                                <button type="button" onclick="setDurationPreset(180, '6 Bulan')" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">6 Bln</button>
-                                <button type="button" onclick="setDurationPreset(365, '1 Tahun')" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">1 Thn</button>
-                                <button type="button" onclick="setDurationPreset(730, '2 Tahun')" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">2 Thn</button>
-                                <button type="button" onclick="setDurationPreset(1095, 'Lifetime (3 Thn)')" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-300 transition">👑 Lifetime</button>
+                                <button type="button" onclick="setDurationPreset(30, '1 Bulan', this)" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-mtblue-800 text-white border border-mtblue-800 transition">1 Bln</button>
+                                <button type="button" onclick="setDurationPreset(90, '3 Bulan', this)" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">3 Bln</button>
+                                <button type="button" onclick="setDurationPreset(180, '6 Bulan', this)" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">6 Bln</button>
+                                <button type="button" onclick="setDurationPreset(365, '1 Tahun', this)" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">1 Thn</button>
+                                <button type="button" onclick="setDurationPreset(730, '2 Tahun', this)" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition">2 Thn</button>
+                                <button type="button" onclick="setDurationPreset(1095, 'Lifetime 3 Thn', this)" class="dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-300 transition">👑 Lifetime</button>
                             </div>
 
                             <input type="number" id="calcTotalDays" value="30" min="1" max="3650" oninput="syncSliderAndCalculate()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-slate-900 font-mono font-bold focus:outline-none focus:border-mtblue-600">
@@ -476,8 +473,8 @@
     <section id="tab-info" class="tab-section hidden flex-1 max-w-4xl w-full mx-auto px-4 pt-5">
         <div class="luxe-card rounded-3xl p-6 mb-5">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
-                <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center logo-frame border border-blue-200 shrink-0 overflow-hidden">
+                <div onclick="handleSecretLogoTap()" class="flex items-center gap-4 cursor-pointer select-none">
+                    <div id="profileLogoContainer" class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center logo-frame border border-blue-200 shrink-0 overflow-hidden">
                         <svg viewBox="0 0 220 200" class="w-15 h-15" xmlns="http://www.w3.org/2000/svg">
                             <rect width="220" height="200" fill="#ffffff"/>
                             <g fill="#0047bb" font-family="'Cinzel', serif" font-weight="900" font-size="92" text-anchor="middle">
@@ -534,8 +531,27 @@
         </div>
     </section>
 
+    <!-- Floating Cart Bar (Muncul Saat Ada Item di Keranjang) -->
+    <div id="floatingCartBar" class="fixed bottom-16 md:bottom-5 left-4 right-20 md:left-auto md:right-20 md:w-96 z-30 hidden">
+        <button onclick="openCartModal()" class="w-full p-3 rounded-2xl bg-gradient-to-r from-mtblue-900 via-mtblue-800 to-indigo-950 text-white shadow-xl border border-blue-400/30 flex items-center justify-between gap-3 transition active:scale-95">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-emerald-300 relative">
+                    <i class="fas fa-basket-shopping text-sm"></i>
+                    <span id="floatingCartCount" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-black flex items-center justify-center">0</span>
+                </div>
+                <div class="text-left">
+                    <span class="text-[10px] text-blue-200 font-semibold block leading-none">Total Keranjang Belanja</span>
+                    <span id="floatingCartTotal" class="text-sm font-black font-mono text-white">Rp 0</span>
+                </div>
+            </div>
+            <span class="px-3 py-1.5 rounded-xl bg-emerald-500 text-white font-extrabold text-[11px] flex items-center gap-1.5 shrink-0">
+                Checkout WA <i class="fas fa-arrow-right text-[10px]"></i>
+            </span>
+        </button>
+    </div>
+
     <!-- Floating WhatsApp Button -->
-    <button onclick="openDirectAdminChat()" aria-label="Chat WhatsApp" class="fixed bottom-20 md:bottom-6 right-4 z-30 w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/35 transition-transform active:scale-90 border-2 border-white">
+    <button onclick="openDirectAdminChat()" aria-label="Chat WhatsApp" class="fixed bottom-16 md:bottom-5 right-4 z-30 w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/35 transition-transform active:scale-90 border-2 border-white">
         <i class="fab fa-whatsapp text-2xl"></i>
     </button>
 
@@ -558,12 +574,59 @@
     </nav>
 
     <!-- ========================================== -->
+    <!-- MODAL KERANJANG BELANJA (MULTI-ITEM ORDER) -->
+    <!-- ========================================== -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-900/55 backdrop-blur-xs">
+        <div class="luxe-card w-full max-w-md rounded-3xl p-5 max-h-[88vh] flex flex-col bg-white">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-mtblue-50 text-mtblue-700 flex items-center justify-center border border-mtblue-200">
+                        <i class="fas fa-basket-shopping"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-extrabold text-slate-900">Keranjang Belanja MTStore</h3>
+                        <p class="text-[10px] text-slate-500">Pilih beberapa aplikasi & kirim 1x chat ke WA Admin</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeCartModal()" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
+                <!-- Di-render oleh JS -->
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 mt-3 space-y-3">
+                <div class="flex items-center justify-between px-1">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase text-slate-400 block">Total Estimasi Pesanan</span>
+                        <span id="cartModalTotal" class="text-lg font-black font-mono text-mtblue-900">Rp 0</span>
+                    </div>
+                    <button type="button" onclick="clearCart()" class="text-[11px] font-bold text-rose-600 hover:text-rose-700 bg-rose-50 px-2.5 py-1.5 rounded-xl border border-rose-200">
+                        <i class="fas fa-trash-can mr-1"></i> Kosongkan
+                    </button>
+                </div>
+
+                <div class="flex gap-2">
+                    <button type="button" onclick="closeCartModal()" class="w-1/3 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold text-xs">
+                        Tambah Lagi
+                    </button>
+                    <button type="button" onclick="checkoutCartToWA()" class="w-2/3 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-500/25 transition active:scale-95">
+                        <i class="fab fa-whatsapp text-base"></i> Checkout via WA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
     <!-- MODAL PIN OWNER (5x Tap Logo MT, PIN 221222)-->
     <!-- ========================================== -->
     <div id="ownerPinModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
         <div class="luxe-card w-full max-w-xs rounded-3xl p-6 text-center bg-white">
             <div class="w-12 h-12 rounded-2xl bg-mtblue-50 text-mtblue-700 flex items-center justify-center mx-auto mb-3 text-lg border border-mtblue-200">
-                <i class="fas fa-user-Astronaut"></i>
+                <i class="fas fa-user-astronaut"></i>
             </div>
             <h3 class="text-base font-extrabold text-slate-900">Verifikasi Owner</h3>
             <p class="text-[11px] text-slate-500 mt-1 mb-4">Masukkan PIN Rahasia Owner MTStore</p>
@@ -578,7 +641,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- MODAL PANEL OWNER: PRODUK, S&K & BACKUP    -->
+    <!-- MODAL PANEL OWNER: PRODUK, S&K & GITHUB    -->
     <!-- ========================================== -->
     <div id="ownerPanelModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-900/55 backdrop-blur-xs">
         <div class="luxe-card w-full max-w-2xl rounded-3xl p-5 max-h-[90vh] flex flex-col bg-white">
@@ -586,7 +649,7 @@
             <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
                 <div>
                     <h3 class="text-base font-extrabold text-slate-900">Dashboard Owner MTStore</h3>
-                    <p class="text-[11px] text-slate-500">Kelola Logo, Harga, Aplikasi Baru, S&K & Backup</p>
+                    <p class="text-[11px] text-slate-500">Kelola Logo, Harga, Aplikasi Baru, S&K & Update ke GitHub</p>
                 </div>
                 <button onclick="closeOwnerPanel()" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center">
                     <i class="fas fa-times"></i>
@@ -606,7 +669,7 @@
                 </button>
             </div>
 
-            <!-- Switcher Tab Owner Panel: Produk vs S&K vs Backup -->
+            <!-- Switcher Tab Owner Panel: Produk vs S&K vs Backup/GitHub -->
             <div class="grid grid-cols-3 gap-1 p-1 bg-slate-100 rounded-2xl mb-3 text-[11px] font-bold">
                 <button id="ownerTabProductsBtn" onclick="switchOwnerPanelTab('products')" class="py-2 rounded-xl bg-white text-mtblue-800 shadow-xs">
                     <i class="fas fa-tags mr-1"></i> Produk
@@ -635,23 +698,37 @@
                 <div class="overflow-y-auto space-y-3 pr-1 text-xs flex-1" id="ownerSnkList"></div>
             </div>
 
-            <!-- VIEW OWNER 3: BACKUP & EXPORT DATA TOKO -->
+            <!-- VIEW OWNER 3: UPDATE PERMANEN KE GITHUB & BACKUP JSON -->
             <div id="ownerViewSync" class="flex-1 flex flex-col overflow-y-auto hidden space-y-3 text-xs pr-1">
-                <div class="p-3 bg-mtblue-50 border border-mtblue-200 rounded-2xl text-[11px] text-slate-700 leading-relaxed">
-                    <strong class="text-mtblue-900 block mb-0.5"><i class="fas fa-circle-info mr-1"></i> Fungsi Backup & Restore Data Toko:</strong>
-                    Salin kode JSON di bawah ini untuk mem-backup seluruh pengaturan harga, stok, aplikasi baru, dan S&K milikmu agar bisa dipasang ke perangkat lain atau disimpan permanen.
+                <!-- Kotak Penjelasan Solusi Agar HP Buyer Ikut Berubah -->
+                <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-[11px] text-amber-950 leading-relaxed space-y-2">
+                    <strong class="text-amber-900 block"><i class="fas fa-bolt mr-1"></i> Cara Agar Perubahanmu Tampil di Semua HP Buyer (GitHub):</strong>
+                    <p>Karena GitHub Pages tidak memakai server database, perubahan yang kamu edit di sini awalnya hanya tersimpan di browser HP-mu. Supaya <b>semua HP pembeli</b> ikut berubah permanen:</p>
+                    <ol class="list-decimal pl-4 space-y-1 font-medium">
+                        <li>Edit harga, nama aplikasi, atau S&K di tab <b>Produk</b> / <b>Edit S&K</b> lalu klik <b>Simpan Perubahan</b>.</li>
+                        <li>Klik tombol <b>Salin Full Kode HTML Terbaru (Untuk GitHub)</b> di bawah ini, lalu tempel (paste) menggantikan isi file <code>index.html</code> di GitHub kamu.</li>
+                    </ol>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                        <button type="button" onclick="copyUpdatedFullHtml()" class="py-2.5 px-3 rounded-xl bg-mtblue-800 hover:bg-mtblue-900 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fas fa-code"></i> Salin Full Kode HTML Terbaru
+                        </button>
+                        <button type="button" onclick="downloadUpdatedFullHtml()" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fas fa-download"></i> Download File index.html
+                        </button>
+                    </div>
                 </div>
+
                 <div>
                     <div class="flex items-center justify-between mb-1">
-                        <label class="text-[10px] font-bold uppercase text-slate-500">Data Konfigurasi Toko (JSON):</label>
+                        <label class="text-[10px] font-bold uppercase text-slate-500">Data Konfigurasi Toko (JSON Backup):</label>
                         <button type="button" onclick="copyBackupJson()" class="text-[10px] font-bold text-mtblue-700 bg-mtblue-50 px-2 py-0.5 rounded-lg border border-mtblue-200">
                             <i class="fas fa-copy mr-1"></i> Salin Kode Backup
                         </button>
                     </div>
-                    <textarea id="ownerBackupTextarea" rows="5" class="w-full bg-slate-900 text-emerald-400 font-mono text-[10px] p-2.5 rounded-xl border border-slate-700 focus:outline-none"></textarea>
+                    <textarea id="ownerBackupTextarea" rows="4" class="w-full bg-slate-900 text-emerald-400 font-mono text-[10px] p-2.5 rounded-xl border border-slate-700 focus:outline-none"></textarea>
                 </div>
-                <button type="button" onclick="importBackupJson()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs">
-                    <i class="fas fa-file-import mr-1"></i> Terapkan / Restore Data dari Kotak di Atas
+                <button type="button" onclick="importBackupJson()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs shadow-xs">
+                    <i class="fas fa-file-import mr-1"></i> Terapkan / Restore Data dari JSON di Atas
                 </button>
 
                 <div class="pt-2 border-t border-slate-200">
@@ -763,12 +840,36 @@
         const WA_ADMIN_NUMBER = "6287792338250";
         const DEFAULT_OWNER_PIN = "221222";
 
+        const DEFAULT_LOGO_SVG_HEADER = `
+            <svg viewBox="0 0 220 200" class="w-11 h-11" xmlns="http://www.w3.org/2000/svg">
+                <rect width="220" height="200" fill="#ffffff"/>
+                <g fill="#0047bb" font-family="'Cinzel', 'Times New Roman', serif" font-weight="900" font-size="92" text-anchor="middle">
+                    <text x="110" y="92" letter-spacing="4">MT</text>
+                </g>
+                <rect x="0" y="80" width="220" height="32" fill="#ffffff"/>
+                <line x1="12" y1="96" x2="54" y2="96" stroke="#8b5cf6" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M64 90 L66 94 L70 96 L66 98 L64 102 L62 98 L58 96 L62 94 Z" fill="#8b5cf6"/>
+                <text x="110" y="102" fill="#8b5cf6" font-family="'Cinzel', serif" font-weight="800" font-size="19" letter-spacing="4" text-anchor="middle">STORE</text>
+                <path d="M156 90 L158 94 L162 96 L158 98 L156 102 L154 98 L150 96 L154 94 Z" fill="#8b5cf6"/>
+                <line x1="166" y1="96" x2="208" y2="96" stroke="#8b5cf6" stroke-width="2.2" stroke-linecap="round"/>
+                <g fill="#0047bb" font-family="'Cinzel', 'Times New Roman', serif" font-weight="900" font-size="92" text-anchor="middle">
+                    <text x="110" y="148" letter-spacing="4" clip-path="inset(38px 0 0 0)">MT</text>
+                </g>
+                <circle cx="48" cy="176" r="2.5" fill="#8b5cf6"/>
+                <text x="110" y="180" fill="#0047bb" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" letter-spacing="3.5" text-anchor="middle">APK PREMIUM</text>
+                <circle cx="172" cy="176" r="2.5" fill="#8b5cf6"/>
+            </svg>
+        `;
+
+        /*__MTSTORE_DATA_START__*/
+        const STORE_DATA_VERSION = "v10_initial";
+        const DEFAULT_CUSTOM_LOGO_URL = "";
         const DEFAULT_PRODUCTS = [
             // Streaming / Movie
-            { id: "netflix-1p1u", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fab fa-netflix", name: "Sharing 1P1U (1 Profil 1 User)", duration: "1 Bulan Penuh", price: 35000, stock: "Ready Stock", orderType: "ready", desc: "1 Profil privat dengan PIN sendiri. Streaming 4K Ultra HD anti-bentrok." },
-            { id: "netflix-private", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fab fa-netflix", name: "Private Account (Akun Utuh)", duration: "1 Bulan Penuh", price: 120000, stock: "Ready Stock", orderType: "fresh", desc: "1 Akun penuh milik Anda sendiri. Bebas kelola 5 profil eksklusif." },
-            { id: "netflix-crack", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fab fa-netflix", name: "Netflix Mod / Crack Android", duration: "1 Bulan Penuh", price: 20000, stock: "Ready Stock", orderType: "ready", desc: "Akses streaming hemat siap tonton khusus perangkat smartphone Android." },
-            { id: "netflix-link", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fab fa-netflix", name: "Netflix Login Link / TV Access", duration: "1 Bulan Penuh", price: 18000, stock: "Ready Stock", orderType: "ready", desc: "Login praktis menggunakan tautan direct access tanpa ribet ketik sandi." },
+            { id: "netflix-1p1u", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Sharing 1P1U (1 Profil 1 User)", duration: "1 Bulan Penuh", price: 35000, stock: "Ready Stock", orderType: "ready", desc: "1 Profil privat dengan PIN sendiri. Streaming 4K Ultra HD anti-bentrok." },
+            { id: "netflix-private", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Private Account (Akun Utuh)", duration: "1 Bulan Penuh", price: 120000, stock: "Ready Stock", orderType: "fresh", desc: "1 Akun penuh milik Anda sendiri. Bebas kelola 5 profil eksklusif." },
+            { id: "netflix-crack", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Netflix Mod / Crack Android", duration: "1 Bulan Penuh", price: 20000, stock: "Ready Stock", orderType: "ready", desc: "Akses streaming hemat siap tonton khusus perangkat smartphone Android." },
+            { id: "netflix-link", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Netflix Login Link / TV Access", duration: "1 Bulan Penuh", price: 18000, stock: "Ready Stock", orderType: "ready", desc: "Login praktis menggunakan tautan direct access tanpa ribet ketik sandi." },
             { id: "youtube-prem", category: "streaming", brand: "YouTube", brandClass: "brand-youtube", brandIcon: "fab fa-youtube", name: "YouTube Premium + Music Invite", duration: "1 Bulan Penuh", price: 15000, stock: "Ready Stock", orderType: "ready", desc: "Nonton video bebas iklan, background play, plus akses YouTube Music." },
             { id: "youtube-ind", category: "streaming", brand: "YouTube", brandClass: "brand-youtube", brandIcon: "fab fa-youtube", name: "YouTube Individual (Akun Admin)", duration: "1 Bulan Penuh", price: 22000, stock: "Ready Stock", orderType: "fresh", desc: "Akun langsung dari admin, anti limit family plan selama masa aktif." },
             { id: "disney-prem", category: "streaming", brand: "Disney+", brandClass: "brand-disney", brandIcon: "fas fa-tv", name: "Disney+ Hotstar Plan", duration: "1 Bulan Penuh", price: 30000, stock: "Ready Stock", orderType: "ready", desc: "Streaming Marvel, Disney, Pixar, film lokal Full HD." },
@@ -809,7 +910,7 @@
 
             // AI & Edukasi & Bacaan
             { id: "chatgpt-plus", category: "ai-edu", brand: "ChatGPT", brandClass: "brand-chatgpt", brandIcon: "fas fa-robot", name: "ChatGPT Plus (GPT-4o)", duration: "1 Bulan Penuh", price: 45000, stock: "Ready Stock", orderType: "ready", desc: "Akses model kecerdasan buatan tercanggih dan analisis dokumen cepat." },
-            { id: "gemini-adv", category: "ai-edu", brand: "Gemini", brandClass: "brand-disney", brandIcon: "fas fa-sparkles", name: "Google Gemini Advanced", duration: "1 Bulan Penuh", price: 40000, stock: "Ready Stock", orderType: "ready", desc: "Model AI Google dengan kemampuan pemahaman konteks raksasa." },
+            { id: "gemini-adv", category: "ai-edu", brand: "Gemini", brandClass: "brand-disney", brandIcon: "fas fa-wand-magic-sparkles", name: "Google Gemini Advanced", duration: "1 Bulan Penuh", price: 40000, stock: "Ready Stock", orderType: "ready", desc: "Model AI Google dengan kemampuan pemahaman konteks raksasa." },
             { id: "duolingo-plus", category: "ai-edu", brand: "Duolingo", brandClass: "brand-duolingo", brandIcon: "fas fa-feather", name: "Duolingo Super (Plus)", duration: "1 Bulan Penuh", price: 15000, stock: "Ready Stock", orderType: "ready", desc: "Belajar bahasa asing tanpa jeda iklan dengan nyawa tanpa batas." },
             { id: "grammarly-prem", category: "ai-edu", brand: "Grammarly", brandClass: "brand-iqiyi", brandIcon: "fas fa-check-double", name: "Grammarly Premium", duration: "1 Bulan Penuh", price: 25000, stock: "Ready Stock", orderType: "ready", desc: "Koreksi tata bahasa Inggris, perbaikan gaya bahasa, dan deteksi tone." },
             { id: "quillbot-prem", category: "ai-edu", brand: "Quillbot", brandClass: "brand-spotify", brandIcon: "fas fa-spell-check", name: "QuillBot Premium Paraphraser", duration: "1 Bulan Penuh", price: 25000, stock: "Ready Stock", orderType: "ready", desc: "Parafrase teks tanpa batas karakter, summarizer, dan plagiarism checker." },
@@ -845,50 +946,72 @@
                 ]
             }
         ];
+        /*__MTSTORE_DATA_END__*/
 
         let currentProducts = [];
         let currentSnkList = [];
         let selectedBrandVariantMap = {};
+        let cartItems = [];
         let activeTab = 'katalog';
         let currentFilterCategory = 'all';
 
         let ownerTriggerClicks = 0;
         let ownerTriggerTimer = null;
 
+        function safeGetStorage(key) {
+            try { return localStorage.getItem(key); } catch (e) { return null; }
+        }
+
+        function safeSetStorage(key, val) {
+            try { localStorage.setItem(key, val); } catch (e) {}
+        }
+
+        function safeRemoveStorage(key) {
+            try { localStorage.removeItem(key); } catch (e) {}
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             loadStorageData();
+            loadCartData();
             applyStoreLogo();
             renderProductGrid();
             renderSnkAccordion();
+            updateCartBadges();
             syncSliderAndCalculate();
             checkStoreOperatingHours();
         });
 
         function applyStoreLogo() {
-            const customUrl = localStorage.getItem('mtstore_custom_logo_url');
-            const container = document.getElementById('storeLogoContainer');
+            const customUrl = safeGetStorage('mtstore_custom_logo_url') || DEFAULT_CUSTOM_LOGO_URL;
+            const headerContainer = document.getElementById('storeLogoContainer');
+            const profileContainer = document.getElementById('profileLogoContainer');
             const urlInput = document.getElementById('customLogoUrlInput');
-            if (urlInput && customUrl) urlInput.value = customUrl;
+            if (urlInput) urlInput.value = customUrl || '';
 
-            if (customUrl && customUrl.trim() !== '' && container) {
-                container.innerHTML = `<img src="${customUrl}" alt="MTStore Logo" class="w-full h-full object-cover" onerror="resetLogoToDefaultSvg()">`;
+            if (customUrl && customUrl.trim() !== '') {
+                const imgHtml = `<img src="${customUrl}" alt="MTStore Logo" class="w-full h-full object-cover" onerror="resetLogoToDefaultSvg()">`;
+                if (headerContainer) headerContainer.innerHTML = imgHtml;
+                if (profileContainer) profileContainer.innerHTML = imgHtml;
+            } else {
+                if (headerContainer) headerContainer.innerHTML = DEFAULT_LOGO_SVG_HEADER;
+                if (profileContainer) profileContainer.innerHTML = DEFAULT_LOGO_SVG_HEADER;
             }
         }
 
         function resetLogoToDefaultSvg() {
-            localStorage.removeItem('mtstore_custom_logo_url');
-            location.reload();
+            safeRemoveStorage('mtstore_custom_logo_url');
+            applyStoreLogo();
         }
 
         function saveCustomLogoUrl() {
             const urlInput = document.getElementById('customLogoUrlInput');
             const val = urlInput ? urlInput.value.trim() : '';
             if (val === '') {
-                localStorage.removeItem('mtstore_custom_logo_url');
+                safeRemoveStorage('mtstore_custom_logo_url');
+                applyStoreLogo();
                 showToast("Logo dikembalikan ke Vektor Resmi MT Store!");
-                setTimeout(() => location.reload(), 600);
             } else {
-                localStorage.setItem('mtstore_custom_logo_url', val);
+                safeSetStorage('mtstore_custom_logo_url', val);
                 applyStoreLogo();
                 showToast("Foto Logo Toko berhasil diperbarui!");
             }
@@ -917,28 +1040,205 @@
         }
 
         function loadStorageData() {
+            const savedVersion = safeGetStorage('mtstore_data_version');
+            if (savedVersion !== STORE_DATA_VERSION) {
+                // Jika file HTML di GitHub baru saja di-update dengan versi baru, otomatis gunakan data terbaru dari file HTML
+                safeSetStorage('mtstore_data_version', STORE_DATA_VERSION);
+                safeSetStorage('mtstore_products_v10', JSON.stringify(DEFAULT_PRODUCTS));
+                safeSetStorage('mtstore_snk_list_v1', JSON.stringify(DEFAULT_SNK_LIST));
+                if (DEFAULT_CUSTOM_LOGO_URL) {
+                    safeSetStorage('mtstore_custom_logo_url', DEFAULT_CUSTOM_LOGO_URL);
+                }
+            }
+
             try {
-                const storedP = localStorage.getItem('mtstore_products_v10');
+                const storedP = safeGetStorage('mtstore_products_v10');
                 currentProducts = storedP ? JSON.parse(storedP) : [...DEFAULT_PRODUCTS];
+                currentProducts.forEach(p => {
+                    if (p.brandIcon === 'fab fa-netflix') p.brandIcon = 'fas fa-film';
+                    if (p.brandIcon === 'fas fa-sparkles') p.brandIcon = 'fas fa-wand-magic-sparkles';
+                });
             } catch (e) {
                 currentProducts = [...DEFAULT_PRODUCTS];
             }
 
             try {
-                const storedS = localStorage.getItem('mtstore_snk_list_v1');
+                const storedS = safeGetStorage('mtstore_snk_list_v1');
                 currentSnkList = storedS ? JSON.parse(storedS) : [...DEFAULT_SNK_LIST];
             } catch (e) {
                 currentSnkList = [...DEFAULT_SNK_LIST];
             }
         }
 
+        // ==========================================
+        // FITUR KERANJANG BELANJA (SHOPPING CART)
+        // ==========================================
+        function loadCartData() {
+            try {
+                const raw = safeGetStorage('mtstore_cart_v1');
+                cartItems = raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                cartItems = [];
+            }
+        }
+
+        function saveCartData() {
+            safeSetStorage('mtstore_cart_v1', JSON.stringify(cartItems));
+            updateCartBadges();
+        }
+
+        function addToCart(productId) {
+            const product = currentProducts.find(p => p.id === productId);
+            if (!product || product.stock === 'Habis') return;
+
+            const orderType = product.orderType || 'ready';
+            const cartKey = `${product.id}__${orderType}`;
+            const existing = cartItems.find(item => item.cartKey === cartKey);
+
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cartItems.push({
+                    cartKey: cartKey,
+                    id: product.id,
+                    brand: product.brand,
+                    name: product.name,
+                    duration: product.duration,
+                    price: product.price,
+                    orderType: orderType,
+                    qty: 1
+                });
+            }
+            saveCartData();
+            showToast(`${product.brand} (${product.name}) masuk keranjang!`);
+        }
+
+        function updateCartQty(cartKey, delta) {
+            const idx = cartItems.findIndex(item => item.cartKey === cartKey);
+            if (idx === -1) return;
+            cartItems[idx].qty += delta;
+            if (cartItems[idx].qty <= 0) {
+                cartItems.splice(idx, 1);
+            }
+            saveCartData();
+            renderCartModalItems();
+        }
+
+        function removeCartItem(cartKey) {
+            cartItems = cartItems.filter(item => item.cartKey !== cartKey);
+            saveCartData();
+            renderCartModalItems();
+        }
+
+        function clearCart() {
+            cartItems = [];
+            saveCartData();
+            renderCartModalItems();
+            showToast("Keranjang dikosongkan");
+        }
+
+        function updateCartBadges() {
+            const totalQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
+            const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+            const headerBadge = document.getElementById('headerCartBadge');
+            const floatingBar = document.getElementById('floatingCartBar');
+            const floatingCount = document.getElementById('floatingCartCount');
+            const floatingTotal = document.getElementById('floatingCartTotal');
+
+            if (headerBadge) headerBadge.textContent = totalQty;
+            if (floatingCount) floatingCount.textContent = totalQty;
+            if (floatingTotal) floatingTotal.textContent = formatRupiah(totalPrice);
+
+            if (floatingBar) {
+                if (totalQty > 0) {
+                    floatingBar.classList.remove('hidden');
+                } else {
+                    floatingBar.classList.add('hidden');
+                }
+            }
+        }
+
+        function openCartModal() {
+            renderCartModalItems();
+            const modal = document.getElementById('cartModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCartModal() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function renderCartModalItems() {
+            const container = document.getElementById('cartItemsContainer');
+            const totalEl = document.getElementById('cartModalTotal');
+            if (!container || !totalEl) return;
+
+            const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            totalEl.textContent = formatRupiah(totalPrice);
+
+            if (cartItems.length === 0) {
+                container.innerHTML = `
+                    <div class="py-10 text-center text-slate-400 space-y-2">
+                        <i class="fas fa-basket-shopping text-3xl text-slate-300"></i>
+                        <p class="text-xs font-semibold">Keranjang belanjamu masih kosong.</p>
+                        <p class="text-[11px]">Klik tombol <b>+ Keranjang</b> pada kartu produk untuk memilih beberapa aplikasi sekaligus.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cartItems.map(item => `
+                <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-2.5">
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="font-extrabold text-slate-900 text-xs">${item.brand}</span>
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-md ${item.orderType === 'fresh' ? 'bg-mtblue-50 text-mtblue-700 border border-mtblue-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}">
+                                ${item.orderType === 'fresh' ? 'Fresh Order' : 'Ready Stock'}
+                            </span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-slate-700 truncate">${item.name}</p>
+                        <p class="text-[10px] text-slate-500">${item.duration} • <b class="font-mono text-mtblue-800">${formatRupiah(item.price)}</b>/pcs</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button type="button" onclick="updateCartQty('${item.cartKey}', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center">-</button>
+                        <span class="w-6 text-center font-mono font-extrabold text-xs text-slate-900">${item.qty}</span>
+                        <button type="button" onclick="updateCartQty('${item.cartKey}', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center">+</button>
+                        <button type="button" onclick="removeCartItem('${item.cartKey}')" class="w-7 h-7 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-100 flex items-center justify-center ml-0.5">
+                            <i class="fas fa-trash-can text-[11px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function checkoutCartToWA() {
+            if (cartItems.length === 0) {
+                showToast("Keranjang masih kosong!", "error");
+                return;
+            }
+
+            const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const lines = cartItems.map((item, i) => {
+                const typeText = item.orderType === 'fresh' ? 'Fresh Order' : 'Ready Stock';
+                const subTotal = formatRupiah(item.price * item.qty);
+                return `${i + 1}. *${item.brand} - ${item.name}* (${item.duration})%0A   • Tipe: ${typeText} | Jumlah: ${item.qty}x | Subtotal: ${subTotal}`;
+            }).join('%0A');
+
+            const text = `Halo Admin *MTStore* 👋%0A%0ASaya mau pesan paket aplikasi dari Keranjang Website:%0A%0A${lines}%0A%0A• *Total Pembayaran: ${formatRupiah(totalPrice)}*%0A• *Garansi:* Full Garansi Sesuai Durasi (Siap Patuhi S&K)%0A%0AMohon info ketersediaan stok & pembayarannya ya Min. Terima kasih!`;
+            window.open(`https://wa.me/${WA_ADMIN_NUMBER}?text=${text}`, '_blank');
+        }
+
         function confirmResetDefault() {
             currentProducts = [...DEFAULT_PRODUCTS];
             currentSnkList = [...DEFAULT_SNK_LIST];
             selectedBrandVariantMap = {};
-            localStorage.removeItem('mtstore_custom_logo_url');
-            localStorage.setItem('mtstore_products_v10', JSON.stringify(currentProducts));
-            localStorage.setItem('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
+            safeRemoveStorage('mtstore_custom_logo_url');
+            safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
+            safeSetStorage('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
             applyStoreLogo();
             openOwnerPanel();
             renderProductGrid();
@@ -1003,8 +1303,15 @@
             if (icon) icon.classList.toggle('rotate-180');
         }
 
-        function goToSnkSection() {
+        function goToSnkSection(category) {
             switchTab('bantuan');
+            const targetIdx = (category === 'streaming' || category === 'music') && currentSnkList.length > 1 ? 1 : 0;
+            const body = document.getElementById(`snk-body-${targetIdx}`);
+            const icon = document.getElementById(`snk-icon-${targetIdx}`);
+            if (body && !body.classList.contains('open')) {
+                body.classList.add('open');
+                if (icon) icon.classList.add('rotate-180');
+            }
         }
 
         function setProductOrderType(productId, type) {
@@ -1089,11 +1396,11 @@
                             <div>
                                 <div class="flex items-center gap-1.5 flex-wrap">
                                     <h4 class="text-xs font-black tracking-wider uppercase">${group.brandName}</h4>
-                                    ${isPopular ? '<span class="bg-amber-400 text-slate-950 font-black text-[8px] px-1.5 py-0.2 rounded-md">🔥 TERLARIS</span>' : ''}
-                                    ${hasMultipleVariants ? `<span class="bg-white/20 text-white font-bold text-[8px] px-1.5 py-0.2 rounded-md border border-white/25">${group.variants.length} Paket</span>` : ''}
+                                    ${isPopular ? '<span class="bg-amber-400 text-slate-950 font-black text-[8px] px-1.5 py-0.5 rounded-md">🔥 TERLARIS</span>' : ''}
+                                    ${hasMultipleVariants ? `<span class="bg-white/20 text-white font-bold text-[8px] px-1.5 py-0.5 rounded-md border border-white/25">${group.variants.length} Paket</span>` : ''}
                                 </div>
                                 <span class="text-[9px] text-emerald-300 font-bold flex items-center gap-1 mt-0.5">
-                                    <i class="fas fa-shield-check"></i> Full Garansi Sesuai Durasi
+                                    <i class="fas fa-shield-halved"></i> Full Garansi Sesuai Durasi
                                 </span>
                             </div>
                         </div>
@@ -1138,7 +1445,7 @@
                                         <i class="fas fa-bolt text-amber-500"></i> Ready Stock
                                     </button>
                                     <button type="button" onclick="setProductOrderType('${activeProduct.id}', 'fresh')" class="py-1.5 px-1 rounded-xl font-bold flex items-center justify-center gap-1 transition ${orderType === 'fresh' ? 'bg-white text-mtblue-700 shadow-xs border border-mtblue-200' : 'text-slate-500 hover:text-slate-800'}">
-                                        <i class="fas fa-sparkles text-mtblue-600"></i> Fresh Order
+                                        <i class="fas fa-wand-magic-sparkles text-mtblue-600"></i> Fresh Order
                                     </button>
                                 </div>
                             </div>
@@ -1153,9 +1460,15 @@
                             ${isOutOfStock ? `
                                 <button disabled class="w-full py-2.5 rounded-2xl bg-slate-100 text-slate-400 font-bold text-xs cursor-not-allowed">Stok Sedang Habis</button>
                             ` : `
-                                <button onclick="handleInstantBuy('${activeProduct.id}')" class="w-full py-2.5 rounded-2xl bg-gradient-to-r from-mtblue-800 to-mtblue-700 hover:from-mtblue-900 hover:to-mtblue-800 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md shadow-mtblue-800/25 transition active:scale-95">
-                                    <i class="fab fa-whatsapp text-emerald-300 text-sm"></i> Pesan ${orderType === 'fresh' ? 'Fresh' : 'Ready'} via WA
-                                </button>
+                                <div class="flex gap-2">
+                                    <button type="button" onclick="addToCart('${activeProduct.id}')" class="px-3.5 py-2.5 rounded-2xl bg-mtblue-50 hover:bg-mtblue-100 text-mtblue-800 border border-mtblue-200 font-extrabold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shrink-0" title="Masukkan ke Keranjang">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <span>+ Keranjang</span>
+                                    </button>
+                                    <button type="button" onclick="handleInstantBuy('${activeProduct.id}')" class="flex-1 py-2.5 rounded-2xl bg-gradient-to-r from-mtblue-800 to-mtblue-700 hover:from-mtblue-900 hover:to-mtblue-800 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-mtblue-800/25 transition active:scale-95">
+                                        <i class="fab fa-whatsapp text-emerald-300 text-sm"></i> Pesan ${orderType === 'fresh' ? 'Fresh' : 'Ready'}
+                                    </button>
+                                </div>
                             `}
                         </div>
                     </div>
@@ -1211,11 +1524,22 @@
             window.open(`https://wa.me/${WA_ADMIN_NUMBER}?text=${text}`, '_blank');
         }
 
-        function setDurationPreset(days, labelText) {
+        function setDurationPreset(days, labelText, btnEl) {
             const totalInput = document.getElementById('calcTotalDays');
             const slider = document.getElementById('calcRemainingDays');
             const numInput = document.getElementById('calcRemainingNumber');
             const badge = document.getElementById('durationBadgeLabel');
+
+            document.querySelectorAll('.dur-preset-btn').forEach(btn => {
+                if (btn.textContent.includes('Lifetime')) {
+                    btn.className = "dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-300 transition";
+                } else {
+                    btn.className = "dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 transition";
+                }
+            });
+            if (btnEl) {
+                btnEl.className = "dur-preset-btn py-1.5 px-2 rounded-lg text-[10px] font-bold bg-mtblue-800 text-white border border-mtblue-800 transition";
+            }
 
             if (totalInput) totalInput.value = days;
             const halfDays = Math.floor(days / 2);
@@ -1356,17 +1680,87 @@
                 sBtn.className = "py-2 rounded-xl bg-white text-rose-700 shadow-xs";
                 renderOwnerSnkList();
             } else if (tab === 'sync') {
+                syncOwnerInputsToState();
                 syncView.classList.remove('hidden');
                 syncBtn.className = "py-2 rounded-xl bg-white text-emerald-700 shadow-xs";
                 refreshBackupJsonBox();
             }
         }
 
+        function syncOwnerInputsToState() {
+            currentProducts.forEach((p, idx) => {
+                const nameEl = document.getElementById(`edit-name-${idx}`);
+                const durEl = document.getElementById(`edit-dur-${idx}`);
+                const priceEl = document.getElementById(`edit-price-${idx}`);
+                const stockEl = document.getElementById(`edit-stock-${idx}`);
+
+                if (nameEl) p.name = nameEl.value.trim();
+                if (durEl) p.duration = durEl.value.trim();
+                if (priceEl) p.price = parseInt(priceEl.value) || p.price;
+                if (stockEl) p.stock = stockEl.value;
+            });
+
+            currentSnkList.forEach((snk, idx) => {
+                const titleEl = document.getElementById(`edit-snk-title-${idx}`);
+                const rulesEl = document.getElementById(`edit-snk-rules-${idx}`);
+                if (titleEl) snk.title = titleEl.value.trim();
+                if (rulesEl) {
+                    const lines = rulesEl.value.split('\n').map(r => r.trim()).filter(r => r.length > 0);
+                    snk.rules = lines.length > 0 ? lines : ["Wajib mematuhi aturan pemakaian akun."];
+                }
+            });
+
+            safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
+            safeSetStorage('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
+        }
+
+        // Fungsi membuat full kode index.html baru dengan data produk, harga & S&K yang sudah di-update permanen
+        function buildUpdatedFullHtmlString() {
+            syncOwnerInputsToState();
+            const customLogo = safeGetStorage('mtstore_custom_logo_url') || '';
+            const newVersion = "v10_" + Date.now();
+
+            const replacementBlock = `/*__MTSTORE_DATA_START__*/\n` +
+                `        const STORE_DATA_VERSION = ${JSON.stringify(newVersion)};\n` +
+                `        const DEFAULT_CUSTOM_LOGO_URL = ${JSON.stringify(customLogo)};\n` +
+                `        const DEFAULT_PRODUCTS = ${JSON.stringify(currentProducts, null, 12)};\n\n` +
+                `        const DEFAULT_SNK_LIST = ${JSON.stringify(currentSnkList, null, 12)};\n` +
+                `        /*__MTSTORE_DATA_END__*/`;
+
+            const fullDoc = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            return fullDoc.replace(/\/\*__MTSTORE_DATA_START__\*\/[\s\S]*?\/\*__MTSTORE_DATA_END__\*\//, replacementBlock);
+        }
+
+        function copyUpdatedFullHtml() {
+            const updatedHtml = buildUpdatedFullHtmlString();
+            const tempArea = document.createElement('textarea');
+            tempArea.value = updatedHtml;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+            showToast("Full Kode HTML Terbaru disalin! Siap paste ke GitHub.");
+        }
+
+        function downloadUpdatedFullHtml() {
+            const updatedHtml = buildUpdatedFullHtmlString();
+            const blob = new Blob([updatedHtml], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast("File index.html terbaru berhasil di-download!");
+        }
+
         function refreshBackupJsonBox() {
             const box = document.getElementById('ownerBackupTextarea');
             if (!box) return;
             const payload = {
-                logoUrl: localStorage.getItem('mtstore_custom_logo_url') || '',
+                logoUrl: safeGetStorage('mtstore_custom_logo_url') || '',
                 products: currentProducts,
                 snkList: currentSnkList
             };
@@ -1388,15 +1782,15 @@
                 const parsed = JSON.parse(box.value.trim());
                 if (Array.isArray(parsed.products)) {
                     currentProducts = parsed.products;
-                    localStorage.setItem('mtstore_products_v10', JSON.stringify(currentProducts));
+                    safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
                 }
                 if (Array.isArray(parsed.snkList)) {
                     currentSnkList = parsed.snkList;
-                    localStorage.setItem('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
+                    safeSetStorage('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
                 }
                 if (typeof parsed.logoUrl === 'string') {
-                    if (parsed.logoUrl) localStorage.setItem('mtstore_custom_logo_url', parsed.logoUrl);
-                    else localStorage.removeItem('mtstore_custom_logo_url');
+                    if (parsed.logoUrl) safeSetStorage('mtstore_custom_logo_url', parsed.logoUrl);
+                    else safeRemoveStorage('mtstore_custom_logo_url');
                     applyStoreLogo();
                 }
                 renderOwnerProductsList();
@@ -1412,7 +1806,7 @@
         function openOwnerPanel() {
             renderOwnerProductsList();
             renderOwnerSnkList();
-            const savedUrl = localStorage.getItem('mtstore_custom_logo_url') || '';
+            const savedUrl = safeGetStorage('mtstore_custom_logo_url') || '';
             const urlInput = document.getElementById('customLogoUrlInput');
             if (urlInput) urlInput.value = savedUrl;
 
@@ -1458,7 +1852,7 @@
 
         function deleteProductItem(id) {
             currentProducts = currentProducts.filter(p => p.id !== id);
-            localStorage.setItem('mtstore_products_v10', JSON.stringify(currentProducts));
+            safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
             renderOwnerProductsList();
             renderProductGrid();
             showToast("Produk berhasil dihapus");
@@ -1500,7 +1894,7 @@
             };
 
             currentProducts.unshift(newProduct);
-            localStorage.setItem('mtstore_products_v10', JSON.stringify(currentProducts));
+            safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
             
             closeAddProductModal();
             renderOwnerProductsList();
@@ -1552,7 +1946,7 @@
                 rules: rules.length > 0 ? rules : ["Wajib mematuhi aturan pemakaian akun."]
             });
 
-            localStorage.setItem('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
+            safeSetStorage('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
             closeAddSnkModal();
             renderOwnerSnkList();
             renderSnkAccordion();
@@ -1561,7 +1955,7 @@
 
         function deleteSnkCategory(idx) {
             currentSnkList.splice(idx, 1);
-            localStorage.setItem('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
+            safeSetStorage('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
             renderOwnerSnkList();
             renderSnkAccordion();
             showToast("Kategori S&K dihapus.");
@@ -1574,31 +1968,7 @@
         }
 
         function saveOwnerChanges() {
-            currentProducts.forEach((p, idx) => {
-                const nameEl = document.getElementById(`edit-name-${idx}`);
-                const durEl = document.getElementById(`edit-dur-${idx}`);
-                const priceEl = document.getElementById(`edit-price-${idx}`);
-                const stockEl = document.getElementById(`edit-stock-${idx}`);
-
-                if (nameEl) p.name = nameEl.value.trim();
-                if (durEl) p.duration = durEl.value.trim();
-                if (priceEl) p.price = parseInt(priceEl.value) || p.price;
-                if (stockEl) p.stock = stockEl.value;
-            });
-
-            currentSnkList.forEach((snk, idx) => {
-                const titleEl = document.getElementById(`edit-snk-title-${idx}`);
-                const rulesEl = document.getElementById(`edit-snk-rules-${idx}`);
-                if (titleEl) snk.title = titleEl.value.trim();
-                if (rulesEl) {
-                    const lines = rulesEl.value.split('\n').map(r => r.trim()).filter(r => r.length > 0);
-                    snk.rules = lines.length > 0 ? lines : ["Wajib mematuhi aturan pemakaian akun."];
-                }
-            });
-
-            localStorage.setItem('mtstore_products_v10', JSON.stringify(currentProducts));
-            localStorage.setItem('mtstore_snk_list_v1', JSON.stringify(currentSnkList));
-
+            syncOwnerInputsToState();
             closeOwnerPanel();
             renderProductGrid();
             renderSnkAccordion();
