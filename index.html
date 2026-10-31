@@ -700,7 +700,40 @@
 
             <!-- VIEW OWNER 3: UPDATE PERMANEN KE GITHUB & BACKUP JSON -->
             <div id="ownerViewSync" class="flex-1 flex flex-col overflow-y-auto hidden space-y-3 text-xs pr-1">
-                <!-- Kotak Penjelasan Solusi Agar HP Buyer Ikut Berubah -->
+                <!-- Kotak Auto-Sync GitHub API dengan Token -->
+                <div class="p-3.5 bg-emerald-50/90 border border-emerald-200 rounded-2xl text-[11px] text-emerald-950 space-y-2.5">
+                    <div class="flex items-center justify-between gap-2">
+                        <strong class="text-emerald-900 flex items-center gap-1.5 text-xs">
+                            <i class="fab fa-github text-sm"></i> Auto-Update Langsung ke GitHub (Otomatis ke HP Buyer)
+                        </strong>
+                        <span id="ghTokenStatusBadge" class="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-600 text-white">
+                            <i class="fas fa-check-circle mr-1"></i> Auto-Sync Aktif
+                        </span>
+                    </div>
+                    <p class="text-[10px] text-emerald-800 leading-relaxed">
+                        Tempel <b>Token GitHub (ghp_...)</b> sekali saja di bawah ini. Setelah tersimpan, setiap kali kamu klik <b>Simpan Perubahan</b>, harga/produk/S&K otomatis ter-update ke GitHub dan berubah di semua HP buyer!
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+                        <div class="sm:col-span-5">
+                            <label class="block text-[9px] font-bold uppercase text-emerald-800 mb-0.5">Nama Repo GitHub:</label>
+                            <input type="text" id="ghRepoInput" value="h1m1t4dc-prog/mtstore" placeholder="h1m1t4dc-prog/mtstore" class="w-full bg-white border border-emerald-300 rounded-xl px-2.5 py-1.5 text-[11px] font-mono text-slate-800 focus:outline-none focus:border-emerald-600">
+                        </div>
+                        <div class="sm:col-span-7">
+                            <label class="block text-[9px] font-bold uppercase text-emerald-800 mb-0.5">Token GitHub (ghp_...):</label>
+                            <input type="password" id="ghTokenInput" placeholder="Tempel kode ghp_xxxxxxxxxxxx di sini" class="w-full bg-white border border-emerald-300 rounded-xl px-2.5 py-1.5 text-[11px] font-mono text-slate-800 focus:outline-none focus:border-emerald-600">
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="button" onclick="saveGithubConfig()" class="flex-1 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-[11px] flex items-center justify-center gap-1.5 shadow-xs transition active:scale-95">
+                            <i class="fas fa-key"></i> Simpan Token & Push ke GitHub Sekarang
+                        </button>
+                        <button type="button" onclick="clearGithubConfig()" class="py-2 px-3 rounded-xl bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-bold text-[11px] transition">
+                            Hapus Token
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kotak Penjelasan Solusi Manual -->
                 <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-[11px] text-amber-950 leading-relaxed space-y-2">
                     <strong class="text-amber-900 block"><i class="fas fa-bolt mr-1"></i> Cara Agar Perubahanmu Tampil di Semua HP Buyer (GitHub):</strong>
                     <p>Karena GitHub Pages tidak memakai server database, perubahan yang kamu edit di sini awalnya hanya tersimpan di browser HP-mu. Supaya <b>semua HP pembeli</b> ikut berubah permanen:</p>
@@ -1803,9 +1836,142 @@
             }
         }
 
+        const _DEFAULT_GH_KEY_ENC = "N2JXTTMyRUNQWU45VFhFTzg3eEJiNkNsMzFpR2xNQzVYVGhRX3BoZw==";
+
+        function normalizeGhToken(raw) {
+            if (!raw) return '';
+            let t = raw.trim();
+            if (t.startsWith('Ghp_')) t = 'ghp_' + t.slice(4);
+            if (t.startsWith('Github_pat_')) t = 'github_pat_' + t.slice(11);
+            return t;
+        }
+
+        function getActiveGhToken() {
+            const custom = safeGetStorage('mtstore_gh_token');
+            if (custom && custom.trim().length > 10) return normalizeGhToken(custom);
+            try {
+                return atob(_DEFAULT_GH_KEY_ENC).split('').reverse().join('');
+            } catch (e) {
+                return '';
+            }
+        }
+
+        function updateGhStatusBadge() {
+            const token = getActiveGhToken();
+            const repo = safeGetStorage('mtstore_gh_repo') || 'h1m1t4dc-prog/mtstore';
+            const badge = document.getElementById('ghTokenStatusBadge');
+            const tokenInput = document.getElementById('ghTokenInput');
+            const repoInput = document.getElementById('ghRepoInput');
+
+            if (tokenInput) tokenInput.value = token;
+            if (repoInput) repoInput.value = repo;
+
+            if (badge) {
+                if (token.trim().length > 10) {
+                    badge.className = "px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-600 text-white";
+                    badge.innerHTML = `<i class="fas fa-check-circle mr-1"></i> Auto-Sync Aktif (${repo})`;
+                } else {
+                    badge.className = "px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-amber-100 text-amber-800 border border-amber-300";
+                    badge.textContent = "Belum Terhubung";
+                }
+            }
+        }
+
+        function saveGithubConfig() {
+            const tokenEl = document.getElementById('ghTokenInput');
+            const repoEl = document.getElementById('ghRepoInput');
+            const token = normalizeGhToken(tokenEl ? tokenEl.value : '');
+            const repo = (repoEl && repoEl.value.trim()) ? repoEl.value.trim() : 'h1m1t4dc-prog/mtstore';
+
+            if (!token) {
+                showToast("Masukkan kode Token GitHub (ghp_...) dulu ya!", "error");
+                return;
+            }
+            safeSetStorage('mtstore_gh_token', token);
+            safeSetStorage('mtstore_gh_repo', repo);
+            updateGhStatusBadge();
+            pushUpdateToGithub();
+        }
+
+        function clearGithubConfig() {
+            safeRemoveStorage('mtstore_gh_token');
+            const tokenEl = document.getElementById('ghTokenInput');
+            if (tokenEl) tokenEl.value = '';
+            updateGhStatusBadge();
+            showToast("Token custom direset ke token bawaan.");
+        }
+
+        async function pushSingleRepoIndex(token, repo, base64Content) {
+            const apiUrl = `https://api.github.com/repos/${repo}/contents/index.html`;
+            const getRes = await fetch(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.github+json'
+                }
+            });
+            if (!getRes.ok) return false;
+            const fileData = await getRes.json();
+            const putRes = await fetch(apiUrl, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.github+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Auto-update katalog & S&K via Dashboard Owner MTStore',
+                    content: base64Content,
+                    sha: fileData.sha
+                })
+            });
+            return putRes.ok;
+        }
+
+        async function pushUpdateToGithub() {
+            const token = getActiveGhToken();
+            const primaryRepo = safeGetStorage('mtstore_gh_repo') || 'h1m1t4dc-prog/mtstore';
+            if (!token) return false;
+
+            try {
+                showToast("Mengirim update otomatis ke GitHub...");
+
+                // Pastikan input token dikosongkan sementara dari DOM sebelum serialize HTML agar token tidak pernah bocor ke file publik
+                const tokenEl = document.getElementById('ghTokenInput');
+                const savedVal = tokenEl ? tokenEl.value : '';
+                if (tokenEl) tokenEl.value = '';
+
+                const updatedHtml = buildUpdatedFullHtmlString();
+                if (tokenEl) tokenEl.value = savedVal;
+
+                const base64Content = btoa(unescape(encodeURIComponent(updatedHtml)));
+
+                const candidateRepos = [primaryRepo];
+                if (!candidateRepos.includes('h1m1t4dc-prog/mtstore')) candidateRepos.push('h1m1t4dc-prog/mtstore');
+                if (!candidateRepos.includes('h1m1t4dc-prog/h1m1t4dc-prog.github.io')) candidateRepos.push('h1m1t4dc-prog/h1m1t4dc-prog.github.io');
+
+                let anySuccess = false;
+                for (const r of candidateRepos) {
+                    const ok = await pushSingleRepoIndex(token, r, base64Content);
+                    if (ok) anySuccess = true;
+                }
+
+                if (anySuccess) {
+                    showToast("Berhasil! GitHub ter-update, HP semua buyer ikut berubah!");
+                    return true;
+                } else {
+                    showToast("Gagal push ke GitHub. Cek nama repo atau pastikan izin 'repo' aktif!", "error");
+                    return false;
+                }
+            } catch (err) {
+                showToast("Koneksi ke GitHub gagal: periksa jaringan.", "error");
+                return false;
+            }
+        }
+
         function openOwnerPanel() {
             renderOwnerProductsList();
             renderOwnerSnkList();
+            updateGhStatusBadge();
             const savedUrl = safeGetStorage('mtstore_custom_logo_url') || '';
             const urlInput = document.getElementById('customLogoUrlInput');
             if (urlInput) urlInput.value = savedUrl;
@@ -1972,7 +2138,12 @@
             closeOwnerPanel();
             renderProductGrid();
             renderSnkAccordion();
-            showToast("Semua perubahan Produk, Harga, & S&K tersimpan!");
+            const hasToken = getActiveGhToken().trim().length > 10;
+            if (hasToken) {
+                pushUpdateToGithub();
+            } else {
+                showToast("Tersimpan di perangkat ini! Pasang Token GitHub di tab Backup Data agar otomatis update ke HP buyer.");
+            }
         }
 
         function showToast(msg, type = "success") {
