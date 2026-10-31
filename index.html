@@ -913,10 +913,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-1.5 bg-slate-100/90 p-1.5 rounded-2xl border border-slate-200/80">
-                <button onclick="switchTab('katalog')" data-tab="katalog" class="nav-btn px-4 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-mtblue-700">
+                <button onclick="switchTab('katalog')" data-tab="katalog" class="nav-btn px-4 py-1.5 rounded-xl text-xs font-bold transition-all bg-mtblue-700 text-white shadow-xs">
                     <i class="fas fa-layer-group mr-1.5"></i>Katalog Produk
                 </button>
-                <button onclick="switchTab('bantuan')" data-tab="bantuan" class="nav-btn px-4 py-1.5 rounded-xl text-xs font-bold transition-all bg-mtblue-700 text-white shadow-xs">
+                <button onclick="switchTab('bantuan')" data-tab="bantuan" class="nav-btn px-4 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-mtblue-700">
                     <i class="fas fa-shield-halved mr-1.5"></i>Garansi, S&amp;K &amp; Refund
                 </button>
                 <button onclick="switchTab('info')" data-tab="info" class="nav-btn px-4 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-mtblue-700">
@@ -942,7 +942,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <!-- ========================================== -->
     <!-- TAB 1: KATALOG PRODUK UTAMA (MULTI-VARIANT)-->
     <!-- ========================================== -->
-    <main id="tab-katalog" class="tab-section flex-1 max-w-6xl w-full mx-auto px-4 pt-4 hidden">
+    <main id="tab-katalog" class="tab-section flex-1 max-w-6xl w-full mx-auto px-4 pt-4">
         
         <!-- Ultra-Luxe Hero Card with Official MT Store Branding -->
         <div class="luxe-hero rounded-3xl p-5 md:p-7 mb-5 relative overflow-hidden">
@@ -1311,7 +1311,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <div>
                             <div class="flex items-center justify-between mb-2.5 gap-2">
                                 <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-lg border border-emerald-200 flex items-center gap-1.5">
-                                    <i class="fas fa-clock text-emerald-600"></i> 1 B
+                                    <i class="fas fa-clock text-emerald-600"></i> 1T
                                 </span>
                                 <button type="button" onclick="goToSnkSection('streaming')" class="text-[10px] font-bold text-mtblue-700 hover:text-mtblue-900 underline flex items-center gap-1">
                                     <i class="fas fa-info-circle"></i> S&amp;K Khusus
@@ -1323,7 +1323,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                     <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Pilih Varian Paket bstation:</label>
                                     <div class="flex flex-wrap gap-1.5">
                                         
-                                                <button type="button" onclick="selectBrandVariant('bstation', 'custom-1793432327247')" class="text-[10px] font-bold px-2.5 py-1 rounded-xl border transition bg-slate-50 text-slate-600 border-slate-200 hover:border-mtblue-300">
+                                                <button type="button" onclick="selectBrandVariant('bstation', 'custom-1793432327247')" class="text-[10px] font-bold px-2.5 py-1 rounded-xl border transition bg-mtblue-800 text-white border-mtblue-800 shadow-xs">
                                                     1tahun sharing
                                                 </button>
                                             
@@ -1331,7 +1331,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                                     3bulan sharing
                                                 </button>
                                             
-                                                <button type="button" onclick="selectBrandVariant('bstation', 'custom-1793432037603')" class="text-[10px] font-bold px-2.5 py-1 rounded-xl border transition bg-mtblue-800 text-white border-mtblue-800 shadow-xs">
+                                                <button type="button" onclick="selectBrandVariant('bstation', 'custom-1793432037603')" class="text-[10px] font-bold px-2.5 py-1 rounded-xl border transition bg-slate-50 text-slate-600 border-slate-200 hover:border-mtblue-300">
                                                     1bulan sharing
                                                 </button>
                                             
@@ -1339,15 +1339,15 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                 </div>
                             
 
-                            <h3 class="text-sm font-extrabold text-slate-900 mb-1 leading-snug">1bulan sharing</h3>
+                            <h3 class="text-sm font-extrabold text-slate-900 mb-1 leading-snug">1tahun sharing</h3>
                             <p class="text-[11px] text-slate-500 mb-3.5 leading-relaxed font-normal">Full Garansi sesuai durasi dengan mematuhi S&amp;K yang berlaku.</p>
 
                             <div class="p-1 rounded-2xl bg-slate-100 border border-slate-200/80 mb-3">
                                 <div class="grid grid-cols-2 gap-1 text-[10px]">
-                                    <button type="button" onclick="setProductOrderType('custom-1793432037603', 'ready')" class="py-1.5 px-1 rounded-xl font-bold flex items-center justify-center gap-1 transition bg-white text-emerald-700 shadow-xs border border-emerald-200">
+                                    <button type="button" onclick="setProductOrderType('custom-1793432327247', 'ready')" class="py-1.5 px-1 rounded-xl font-bold flex items-center justify-center gap-1 transition bg-white text-emerald-700 shadow-xs border border-emerald-200">
                                         <i class="fas fa-bolt text-amber-500"></i> Ready Stock
                                     </button>
-                                    <button type="button" onclick="setProductOrderType('custom-1793432037603', 'fresh')" class="py-1.5 px-1 rounded-xl font-bold flex items-center justify-center gap-1 transition text-slate-500 hover:text-slate-800">
+                                    <button type="button" onclick="setProductOrderType('custom-1793432327247', 'fresh')" class="py-1.5 px-1 rounded-xl font-bold flex items-center justify-center gap-1 transition text-slate-500 hover:text-slate-800">
                                         <i class="fas fa-wand-magic-sparkles text-mtblue-600"></i> Fresh Order
                                     </button>
                                 </div>
@@ -1357,16 +1357,16 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <div class="pt-2.5 border-t border-slate-100">
                             <div class="flex items-baseline justify-between mb-2.5">
                                 <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Harga Paket</span>
-                                <span class="text-lg font-black text-slate-900 font-mono">Rp 4.500</span>
+                                <span class="text-lg font-black text-slate-900 font-mono">Rp 9.000</span>
                             </div>
 
                             
                                 <div class="flex gap-2">
-                                    <button type="button" onclick="addToCart('custom-1793432037603')" class="px-3.5 py-2.5 rounded-2xl bg-mtblue-50 hover:bg-mtblue-100 text-mtblue-800 border border-mtblue-200 font-extrabold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shrink-0" title="Masukkan ke Keranjang">
+                                    <button type="button" onclick="addToCart('custom-1793432327247')" class="px-3.5 py-2.5 rounded-2xl bg-mtblue-50 hover:bg-mtblue-100 text-mtblue-800 border border-mtblue-200 font-extrabold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shrink-0" title="Masukkan ke Keranjang">
                                         <i class="fas fa-cart-plus"></i>
                                         <span>+ Keranjang</span>
                                     </button>
-                                    <button type="button" onclick="handleInstantBuy('custom-1793432037603')" class="flex-1 py-2.5 rounded-2xl bg-gradient-to-r from-mtblue-800 to-mtblue-700 hover:from-mtblue-900 hover:to-mtblue-800 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-mtblue-800/25 transition active:scale-95">
+                                    <button type="button" onclick="handleInstantBuy('custom-1793432327247')" class="flex-1 py-2.5 rounded-2xl bg-gradient-to-r from-mtblue-800 to-mtblue-700 hover:from-mtblue-900 hover:to-mtblue-800 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-mtblue-800/25 transition active:scale-95">
                                         <i class="fab fa-whatsapp text-emerald-300 text-sm"></i> Pesan Ready
                                     </button>
                                 </div>
@@ -1380,7 +1380,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <!-- ========================================== -->
     <!-- TAB 2: PUSAT GARANSI, S&K APK & KALKULATOR -->
     <!-- ========================================== -->
-    <section id="tab-bantuan" class="tab-section flex-1 max-w-5xl w-full mx-auto px-4 pt-5">
+    <section id="tab-bantuan" class="tab-section flex-1 max-w-5xl w-full mx-auto px-4 pt-5 hidden">
         <div class="mb-5">
             <span class="text-[11px] font-extrabold uppercase tracking-widest text-mtblue-700 bg-mtblue-50 px-3 py-1 rounded-full border border-mtblue-200">Proteksi &amp; Ketentuan Resmi</span>
             <h2 class="text-xl md:text-2xl font-black text-slate-900 mt-2">S&amp;K Aplikasi, Klaim Kendala &amp; Kalkulator Refund</h2>
@@ -1422,7 +1422,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <div class="rounded-2xl border border-slate-200 bg-slate-50/70 overflow-hidden">
                     <button onclick="toggleSnkItem(1)" class="w-full p-3.5 text-left flex items-center justify-between gap-3 font-bold text-xs text-slate-800 hover:bg-white transition">
                         <span class="flex items-center gap-2">
-                            <i class="fas fa-circle-check text-mtblue-700"></i> bstation shar 1b
+                            <i class="fas fa-circle-check text-mtblue-700"></i> bstation shar 3b
                         </span>
                         <i class="fas fa-chevron-down text-slate-400 text-[10px] rotate-icon " id="snk-icon-1"></i>
                     </button>
@@ -1660,11 +1660,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <!-- Bottom Navigation Bar (Mobile) -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 luxe-glass border-t border-blue-100 px-3 py-1.5">
         <div class="grid grid-cols-3 gap-1 max-w-md mx-auto">
-            <button onclick="switchTab('katalog')" data-tab="katalog" class="mobile-nav-btn flex flex-col items-center py-1.5 rounded-xl text-slate-400 font-medium">
+            <button onclick="switchTab('katalog')" data-tab="katalog" class="mobile-nav-btn flex flex-col items-center py-1.5 rounded-xl text-mtblue-700 font-bold">
                 <i class="fas fa-layer-group text-sm mb-0.5"></i>
                 <span class="text-[10px]">Katalog</span>
             </button>
-            <button onclick="switchTab('bantuan')" data-tab="bantuan" class="mobile-nav-btn flex flex-col items-center py-1.5 rounded-xl text-mtblue-700 font-bold">
+            <button onclick="switchTab('bantuan')" data-tab="bantuan" class="mobile-nav-btn flex flex-col items-center py-1.5 rounded-xl text-slate-400 font-medium">
                 <i class="fas fa-shield-halved text-sm mb-0.5"></i>
                 <span class="text-[10px]">S&amp;K &amp; Garansi</span>
             </button>
@@ -2363,7 +2363,7 @@ Wajib login di 1 perangkat sesuai kesepakatan" class="w-full bg-slate-50 border 
         `;
 
         /*__MTSTORE_DATA_START__*/
-        const STORE_DATA_VERSION = "v10_1793433076234";
+        const STORE_DATA_VERSION = "v10_1793433181751";
         const DEFAULT_CUSTOM_LOGO_URL = "";
         const DEFAULT_PRODUCTS = [
           {
@@ -2517,7 +2517,7 @@ Wajib login di 1 perangkat sesuai kesepakatan" class="w-full bg-slate-50 border 
           },
           {
                     "id": "snk-1793432991561",
-                    "title": "bstation shar 1b",
+                    "title": "bstation shar 3b",
                     "rules": [
                               "𝙨𝙮𝙖𝙧𝙖𝙩 & 𝙠𝙚𝙩𝙚𝙣𝙩𝙪𝙖𝙣 :",
                               "— 𝘀𝗵𝗮𝗿𝗶𝗻𝗴 𝗺𝗮𝗸𝘀𝗶𝗺𝗮𝗹 𝗹𝗼𝗴𝗶𝗻 𝟭 𝗱𝗲𝘃𝗶𝗰𝗲",
