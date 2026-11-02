@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MTStore — Official 3D Blue-White Digital Storefront</title>
+    <title>MTStore Digital Premium — Official Storefront</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts: Plus Jakarta Sans + Inter + Cinzel -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -27,12 +27,12 @@
 
     <style>
         body {
-            background-color: #eef4ff;
+            background-color: #f2f6fc;
             background-image:
-                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.14) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.16) 0px, transparent 50%),
-                linear-gradient(180deg, #e8f1ff 0%, #f5f9ff 45%, #edf4ff 100%);
-            color: #0f172a;
+                radial-gradient(1000px 500px at 10% -5%, rgba(0, 71, 187, 0.09) 0%, transparent 65%),
+                radial-gradient(800px 450px at 95% 5%, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
+                linear-gradient(180deg, #eef4fc 0%, #f7faff 40%, #f0f5fc 100%);
+            color: #0b1528;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
@@ -41,160 +41,193 @@
         .tabular-price {
             font-family: 'Inter', sans-serif;
             font-variant-numeric: tabular-nums;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
 
-        /* 3D Frosted White-Blue Sticky Navbar */
-        .navbar-3d-white {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1.5px solid #cfe0ff;
+        /* Architectural Frosted Porcelain Header */
+        .glass-header-3d {
+            background: rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 71, 187, 0.10);
             box-shadow:
-                0 8px 24px -6px rgba(0, 71, 187, 0.08),
-                inset 0 -1px 0 #ffffff;
+                0 12px 32px -12px rgba(9, 30, 66, 0.07),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.9);
         }
 
-        /* 3D Royal Blue Sculpted Hero Stage */
-        .hero-3d-royalblue {
+        /* 3D Royal Sapphire Architectural Monolith Hero */
+        .sapphire-monolith-3d {
             background:
-                radial-gradient(110% 110% at 95% 5%, rgba(96, 165, 250, 0.45) 0%, transparent 55%),
-                radial-gradient(90% 90% at 5% 100%, rgba(29, 78, 216, 0.6) 0%, transparent 60%),
-                linear-gradient(135deg, #003388 0%, #0047bb 52%, #1d68e8 100%);
-            border: 2px solid #60a5fa;
+                radial-gradient(120% 140% at 100% 0%, rgba(96, 165, 250, 0.38) 0%, rgba(29, 78, 216, 0) 55%),
+                radial-gradient(90% 120% at 0% 100%, rgba(0, 82, 204, 0.55) 0%, transparent 60%),
+                linear-gradient(135deg, #03153a 0%, #003388 48%, #0047bb 85%, #155ee0 100%);
+            border: 1px solid rgba(147, 197, 253, 0.35);
             box-shadow:
-                0 7px 0 #002466,
-                0 20px 38px -8px rgba(0, 56, 153, 0.38),
-                inset 0 2px 1px rgba(255, 255, 255, 0.42);
+                0 28px 56px -14px rgba(3, 21, 58, 0.42),
+                0 8px 20px -6px rgba(0, 71, 187, 0.28),
+                inset 0 1.5px 1px rgba(255, 255, 255, 0.35),
+                inset 0 -1px 2px rgba(2, 10, 30, 0.5);
             position: relative;
             overflow: hidden;
         }
 
-        /* Decorative 3D Glass Rings inside Hero */
-        .hero-3d-ring {
+        /* Subtle 3D Perspective Grid Mesh inside Hero */
+        .sapphire-mesh-bg {
             position: absolute;
-            border-radius: 9999px;
-            border: 1.5px solid rgba(255, 255, 255, 0.16);
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 36px 36px;
+            mask-image: radial-gradient(ellipse 80% 90% at 80% 30%, black 15%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 90% at 80% 30%, black 15%, transparent 75%);
             pointer-events: none;
         }
 
-        /* 3D Porcelain White & Blue Sculpted Card */
-        .card-3d-porcelain {
-            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-            border: 1.5px solid #bfdbfe;
+        /* 3D Frosted Glass Dock (Overlapping Search & Toolbar) */
+        .frosted-dock-3d {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 250, 255, 0.94) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 71, 187, 0.12);
             box-shadow:
-                0 6px 0 #c3dafe,
-                0 16px 32px -8px rgba(0, 71, 187, 0.12),
-                inset 0 2px 0 #ffffff;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+                0 20px 40px -15px rgba(9, 30, 66, 0.09),
+                0 4px 12px -2px rgba(0, 71, 187, 0.05),
+                inset 0 1.5px 0 #ffffff;
+        }
+
+        /* 3D Flagship Spotlight Card (Royal Blue Metallic) */
+        .flagship-royal-3d {
+            background:
+                radial-gradient(120% 100% at 100% 0%, rgba(96, 165, 250, 0.32) 0%, transparent 55%),
+                linear-gradient(145deg, #051c4d 0%, #003899 55%, #0052cc 100%);
+            border: 1px solid rgba(147, 197, 253, 0.32);
+            box-shadow:
+                0 18px 36px -10px rgba(0, 45, 130, 0.35),
+                0 4px 10px -2px rgba(0, 30, 90, 0.2),
+                inset 0 1.5px 1px rgba(255, 255, 255, 0.32);
+            transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease;
+        }
+        .flagship-royal-3d:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 24px 44px -10px rgba(0, 56, 153, 0.45),
+                inset 0 1.5px 1px rgba(255, 255, 255, 0.42);
+        }
+
+        /* 3D Porcelain Architectural Card */
+        .porcelain-card-3d {
+            background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+            border: 1px solid rgba(0, 71, 187, 0.11);
+            box-shadow:
+                0 18px 38px -12px rgba(9, 30, 66, 0.08),
+                0 4px 12px -3px rgba(0, 71, 187, 0.04),
+                inset 0 1.5px 0 #ffffff,
+                inset 0 -1px 0 rgba(0, 71, 187, 0.06);
+            transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease, border-color 0.24s ease;
             position: relative;
             overflow: hidden;
         }
-        .card-3d-porcelain:hover {
+        .porcelain-card-3d:hover {
             transform: translateY(-3px);
-            border-color: #60a5fa;
+            border-color: rgba(0, 71, 187, 0.26);
             box-shadow:
-                0 9px 0 #93c5fd,
-                0 22px 40px -10px rgba(0, 71, 187, 0.20),
-                inset 0 2px 0 #ffffff;
+                0 24px 48px -12px rgba(0, 71, 187, 0.14),
+                0 6px 16px -4px rgba(0, 71, 187, 0.07),
+                inset 0 1.5px 0 #ffffff;
         }
 
-        /* 3D Soft-Blue Header Ribbon inside Porcelain Card */
-        .card-header-tint {
-            background: linear-gradient(180deg, #e8f2ff 0%, #ffffff 100%);
-            border-bottom: 1.5px solid #dbeafe;
+        /* Subtle Top Specular Accent on Porcelain Card Header */
+        .porcelain-card-header {
+            background: linear-gradient(180deg, rgba(235, 244, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+            border-bottom: 1px solid rgba(0, 71, 187, 0.08);
         }
 
-        /* 3D Tactile Variant Slot (White-Blue) */
-        .slot-3d-item {
-            background: #f4f8ff;
-            border: 1.5px solid #dbeafe;
+        /* 3D Package Module inside 2x2 Matrix */
+        .pkg-module-3d {
+            background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+            border: 1px solid rgba(0, 71, 187, 0.12);
             box-shadow:
-                0 3px 0 #d0e2ff,
+                0 4px 10px -2px rgba(9, 30, 66, 0.04),
+                0 1px 2px rgba(0, 71, 187, 0.04),
                 inset 0 1px 0 #ffffff;
-            transition: all 0.15s ease;
+            transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .slot-3d-item:hover {
-            background: #eaf2ff;
-            border-color: #60a5fa;
-            transform: translateY(-1px);
+        .pkg-module-3d:hover {
+            background: linear-gradient(180deg, #ffffff 0%, #ebf3ff 100%);
+            border-color: rgba(0, 71, 187, 0.35);
+            transform: translateY(-1.5px);
             box-shadow:
-                0 4px 0 #93c5fd,
+                0 10px 20px -6px rgba(0, 71, 187, 0.12),
                 inset 0 1px 0 #ffffff;
         }
-        .slot-3d-item:active {
-            transform: translateY(2px);
-            box-shadow: 0 1px 0 #93c5fd;
+        .pkg-module-3d:active {
+            transform: translateY(0.5px);
         }
-        .slot-3d-item.is-selected {
-            background: linear-gradient(135deg, #e0edff 0%, #f0f7ff 100%);
+        .pkg-module-3d.is-selected {
+            background: linear-gradient(145deg, #ebf3ff 0%, #f5f9ff 100%);
             border: 1.5px solid #0047bb;
             box-shadow:
-                0 3px 0 #0047bb,
-                0 6px 14px rgba(0, 71, 187, 0.14),
+                0 10px 22px -6px rgba(0, 71, 187, 0.18),
+                0 0 0 2px rgba(0, 71, 187, 0.08),
                 inset 0 1px 0 #ffffff;
         }
 
-        /* 3D Extruded App Icon Keycap */
-        .keycap-3d-icon {
-            border-radius: 14px;
+        /* 3D Sculpted App Emblem Squircle */
+        .emblem-3d {
+            border-radius: 13px;
             position: relative;
             box-shadow:
-                0 4px 0 rgba(15, 23, 42, 0.25),
-                0 8px 16px -3px rgba(0, 56, 153, 0.22),
-                inset 0 2px 1px rgba(255, 255, 255, 0.45),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.35);
+                0 10px 18px -4px rgba(9, 30, 66, 0.25),
+                0 2px 5px -1px rgba(9, 30, 66, 0.15),
+                inset 0 1.5px 1px rgba(255, 255, 255, 0.42),
+                inset 0 -1.5px 2px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.22);
         }
-        .keycap-3d-icon::after {
+        .emblem-3d::after {
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: 13px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 50%);
+            border-radius: 12px;
+            background: linear-gradient(165deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 48%);
             pointer-events: none;
         }
 
-        /* 3D Royal Blue Push Button */
-        .btn-3d-royal {
-            background: linear-gradient(180deg, #2563eb 0%, #0047bb 100%);
-            border: 1px solid #60a5fa;
+        /* 3D Royal Sapphire Primary Action Button */
+        .btn-sapphire-3d {
+            background: linear-gradient(180deg, #1a66e8 0%, #0047bb 55%, #003899 100%);
+            border: 1px solid rgba(96, 165, 250, 0.45);
             box-shadow:
-                0 4px 0 #002b80,
-                0 8px 16px -3px rgba(0, 71, 187, 0.4),
-                inset 0 1.5px 0 rgba(255, 255, 255, 0.4);
+                0 8px 18px -4px rgba(0, 71, 187, 0.42),
+                0 2px 4px rgba(0, 40, 110, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.38);
             color: #ffffff;
-            transition: all 0.12s ease;
+            transition: all 0.16s ease;
         }
-        .btn-3d-royal:hover {
-            filter: brightness(1.06);
-        }
-        .btn-3d-royal:active {
-            transform: translateY(3px);
+        .btn-sapphire-3d:hover {
+            background: linear-gradient(180deg, #2570f0 0%, #0050d1 55%, #003da6 100%);
             box-shadow:
-                0 1px 0 #002b80,
-                0 3px 6px rgba(0, 71, 187, 0.3);
+                0 12px 22px -4px rgba(0, 71, 187, 0.52),
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+        }
+        .btn-sapphire-3d:active {
+            transform: scale(0.97);
         }
 
-        /* 3D White Tactile Button */
-        .btn-3d-white {
-            background: linear-gradient(180deg, #ffffff 0%, #f0f6ff 100%);
-            border: 1.5px solid #bfdbfe;
+        /* 3D Porcelain Secondary Button */
+        .btn-porcelain-3d {
+            background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+            border: 1px solid rgba(0, 71, 187, 0.15);
             box-shadow:
-                0 4px 0 #c3dafe,
-                0 6px 12px rgba(0, 71, 187, 0.08),
+                0 4px 10px -2px rgba(9, 30, 66, 0.05),
                 inset 0 1px 0 #ffffff;
+            color: #0f2952;
+            transition: all 0.16s ease;
+        }
+        .btn-porcelain-3d:hover {
+            border-color: rgba(0, 71, 187, 0.35);
             color: #0047bb;
-            transition: all 0.12s ease;
-        }
-        .btn-3d-white:hover {
-            border-color: #60a5fa;
             background: #ffffff;
-        }
-        .btn-3d-white:active {
-            transform: translateY(3px);
-            box-shadow: 0 1px 0 #c3dafe;
         }
 
         .scrollbar-none::-webkit-scrollbar {
@@ -204,12 +237,12 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-blue-600 selection:text-white pb-24">
 
-    <!-- Sticky 3D Porcelain-White & Royal-Blue Header -->
-    <header class="sticky top-0 z-40 navbar-3d-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+    <!-- Sticky 3D Frosted Porcelain Navbar -->
+    <header class="sticky top-0 z-40 glass-header-3d">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
             <!-- Brand Identity (5x Tap Secret Trigger for Owner) -->
             <div id="secretOwnerTrigger" onclick="handleSecretLogoTap()" class="flex items-center gap-3 cursor-pointer select-none group min-w-0">
-                <div id="storeLogoContainer" class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center overflow-hidden border-2 border-blue-200 shadow-[0_3px_0_#bfdbfe,0_6px_12px_rgba(0,71,187,0.12)] shrink-0 transition-transform group-active:translate-y-0.5">
+                <div id="storeLogoContainer" class="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-blue-200/80 shadow-[0_6px_14px_-3px_rgba(0,71,187,0.16)] shrink-0 transition-transform group-active:scale-95">
                     <svg viewBox="0 0 220 200" class="w-9 h-9" xmlns="http://www.w3.org/2000/svg">
                         <rect width="220" height="200" fill="#ffffff"/>
                         <g fill="#0047bb" font-family="'Cinzel', 'Times New Roman', serif" font-weight="900" font-size="92" text-anchor="middle">
@@ -227,25 +260,24 @@
                 </div>
                 <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                        <span class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900">MTStore</span>
-                        <span id="liveStoreBadge" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
+                        <span class="text-[16px] sm:text-[17px] font-extrabold tracking-tight text-slate-900">MTStore</span>
+                        <span id="liveStoreBadge" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shrink-0">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Buka
                         </span>
                     </div>
                     <p id="topAnnouncementText" class="text-[11px] font-medium text-slate-500 truncate">
-                        Official Digital Subscription Catalog
+                        MTStore Digital Premium
                     </p>
                 </div>
             </div>
 
             <!-- Header Actions: Digital Invoice + Direct WA -->
             <div class="flex items-center gap-2 shrink-0">
-                <button onclick="openCartModal()" class="btn-3d-white relative h-9 px-3 rounded-xl font-bold text-xs flex items-center gap-2" title="Ringkasan Invoice Pesanan">
-                    <i class="fas fa-file-invoice text-blue-600"></i>
-                    <span class="hidden sm:inline">Invoice</span>
-                    <span id="headerCartBadge" class="min-w-[18px] h-[18px] px-1 rounded-md bg-blue-600 text-white text-[10px] font-extrabold flex items-center justify-center tabular-price">0</span>
+                <button onclick="openCartModal()" class="btn-porcelain-3d relative h-9 px-3 rounded-xl font-semibold text-xs flex items-center gap-2" title="Ringkasan Invoice Pesanan">
+                    <span class="text-slate-700">Invoice</span>
+                    <span id="headerCartBadge" class="min-w-[18px] h-[18px] px-1 rounded-md bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center tabular-price">0</span>
                 </button>
-                <button onclick="openDirectAdminChat()" class="btn-3d-royal h-9 px-3.5 rounded-xl font-bold text-xs flex items-center gap-1.5">
+                <button onclick="openDirectAdminChat()" class="btn-sapphire-3d h-9 px-3.5 rounded-xl font-semibold text-xs flex items-center gap-1.5">
                     <i class="fab fa-whatsapp text-sm"></i>
                     <span class="hidden sm:inline">Hubungi CS</span>
                 </button>
@@ -254,36 +286,35 @@
     </header>
 
     <!-- ========================================== -->
-    <!-- MAIN 3D BLUE-WHITE WORKSPACE               -->
+    <!-- MAIN 3D ARCHITECTURAL WORKSPACE            -->
     <!-- ========================================== -->
-    <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 pt-4 space-y-5">
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 pt-4 space-y-5">
 
-        <!-- 1. 3D ROYAL BLUE SCULPTED HERO CARD + SEGMENTED VIEW SWITCHER -->
-        <section class="hero-3d-royalblue rounded-3xl p-5 sm:p-6 text-white">
-            <!-- 3D Decorative Glass Rings -->
-            <div class="hero-3d-ring w-48 h-48 -top-16 -right-12"></div>
-            <div class="hero-3d-ring w-32 h-32 bottom-2 right-12 opacity-60"></div>
+        <!-- 1. 3D ROYAL SAPPHIRE ARCHITECTURAL MONOLITH -->
+        <section class="sapphire-monolith-3d rounded-2xl p-5 sm:p-7 text-white">
+            <div class="sapphire-mesh-bg"></div>
 
-            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div class="space-y-1.5 max-w-lg">
-                    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 border border-white/25 backdrop-blur-xs text-[10px] font-bold uppercase tracking-widest text-sky-100">
-                        <i class="fas fa-certificate text-sky-300"></i> Official Digital Storefront
+            <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+                <div class="space-y-2 max-w-xl">
+                    <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-sky-200/90">
+                        <span class="w-2 h-0.5 bg-sky-300 inline-block"></span>
+                        <span>MTSTORE DIGITAL PREMIUM</span>
                     </div>
-                    <h1 class="text-lg sm:text-2xl font-extrabold tracking-tight text-white leading-snug">
-                        Katalog Resmi Layanan &amp; Aplikasi Digital
+                    <h1 class="text-xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+                        Katalog Resmi 42 Aplikasi &amp; Layanan Digital
                     </h1>
-                    <p class="text-xs text-blue-100/90 leading-relaxed">
-                        Ketuk paket pada kartu aplikasi untuk memasukkan ke <b>Invoice Pesanan</b> dan lanjutkan otomatis ke WhatsApp Admin.
+                    <p class="text-xs sm:text-[13px] text-blue-100/85 leading-relaxed">
+                        Pilih aplikasi dan paket langganan di bawah untuk membuat ringkasan <b>Invoice Resmi</b> dan pembayaran <b>QRIS</b> via WhatsApp.
                     </p>
                 </div>
 
-                <!-- 3D Segmented Mode Switcher (Agar Info Toko Tidak Memanjang di Bawah Halaman!) -->
-                <div class="bg-blue-950/45 p-1.5 rounded-2xl border border-white/20 backdrop-blur-xs flex items-center gap-1 shrink-0 self-start md:self-center">
-                    <button type="button" id="segBtnCatalog" onclick="switchWorkspaceView('catalog')" class="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-white text-blue-700 shadow-sm transition flex items-center gap-1.5">
-                        <i class="fas fa-layer-group text-[11px]"></i> Katalog Harga
+                <!-- Segmented Workspace Switcher -->
+                <div class="bg-slate-950/35 p-1 rounded-xl border border-white/15 backdrop-blur-md flex items-center gap-1 shrink-0 self-start lg:self-end">
+                    <button type="button" id="segBtnCatalog" onclick="switchWorkspaceView('catalog')" class="px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition">
+                        Katalog Aplikasi
                     </button>
-                    <button type="button" id="segBtnInfo" onclick="switchWorkspaceView('info')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-blue-100 hover:text-white transition flex items-center gap-1.5">
-                        <i class="fas fa-clock text-[11px]"></i> Jam &amp; Kontak Resmi
+                    <button type="button" id="segBtnInfo" onclick="switchWorkspaceView('info')" class="px-4 py-2 rounded-lg text-xs font-semibold text-blue-100 hover:text-white transition">
+                        Jam &amp; Kontak Resmi
                     </button>
                 </div>
             </div>
@@ -292,51 +323,34 @@
         <!-- ========================================== -->
         <!-- VIEW 1: KATALOG PRODUK 3D BLUE-WHITE       -->
         <!-- ========================================== -->
-        <section id="workspaceCatalogView" class="space-y-4">
+        <section id="workspaceCatalogView" class="space-y-5">
 
-            <!-- 3D Porcelain Search & Filter Console -->
-            <div class="card-3d-porcelain rounded-2xl p-3 sm:p-4">
+            <!-- 3D Frosted Glass Search, Sort & Smart Category Dock -->
+            <div class="frosted-dock-3d rounded-2xl p-3 sm:p-4">
                 <div class="flex flex-col sm:flex-row gap-2.5">
                     <div class="relative flex-1">
-                        <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-blue-500" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
-                        <input type="text" id="catalogSearchInput" oninput="handleCatalogSearch()" placeholder="Cari aplikasi atau layanan (Netflix, Spotify, Canva...)" class="w-full bg-blue-50/70 border border-blue-200 text-slate-900 placeholder-slate-400 rounded-xl pl-10 pr-8 py-2.5 text-xs font-semibold focus:outline-none focus:bg-white focus:border-blue-600 transition">
+                        <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+                        <input type="text" id="catalogSearchInput" oninput="handleCatalogSearch()" placeholder="Ketik keyword aplikasi (netflix, appmus, canva, capcut, chatgpt...)" class="w-full bg-slate-50/90 border border-slate-200/90 text-slate-900 placeholder-slate-400 rounded-xl pl-10 pr-8 py-2.5 text-xs font-medium focus:outline-none focus:bg-white focus:border-blue-600 transition">
                         <button id="clearSearchBtn" onclick="clearCatalogSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 text-xs">
                             <i class="fas fa-times-circle"></i>
                         </button>
                     </div>
-                    <select id="catalogSortSelect" onchange="handleCatalogSearch()" class="bg-blue-50/70 hover:bg-blue-100/60 text-blue-900 border border-blue-200 rounded-xl px-3.5 py-2.5 text-xs font-bold focus:outline-none focus:border-blue-600 cursor-pointer shrink-0">
-                        <option value="default">Urutan: Populer</option>
+                    <select id="catalogSortSelect" onchange="handleCatalogSearch()" class="bg-slate-50/90 hover:bg-white text-slate-800 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs font-semibold focus:outline-none focus:border-blue-600 cursor-pointer shrink-0">
                         <option value="name-asc">Abjad: A – Z</option>
-                        <option value="price-asc">Harga: Termurah</option>
-                        <option value="price-desc">Harga: Termahal</option>
+                        <option value="default">Urutan: Utama</option>
+                        <option value="price-asc">Harga: Terendah</option>
+                        <option value="price-desc">Harga: Tertinggi</option>
                     </select>
                 </div>
 
-                <!-- Dynamic Category Pills (Hanya muncul rapi jika ada > 1 kategori, atau tetap bisa difilter) -->
-                <div id="categoryFilterBar" class="flex items-center gap-1.5 overflow-x-auto scrollbar-none pt-3 mt-3 border-t border-blue-100 text-xs font-bold">
-                    <button onclick="filterCatalog('all', this)" class="catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-royal text-white shrink-0">
-                        Semua Layanan
-                    </button>
-                    <button onclick="filterCatalog('streaming', this)" class="catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-white shrink-0">
-                        Hiburan &amp; Streaming
-                    </button>
-                    <button onclick="filterCatalog('music', this)" class="catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-white shrink-0">
-                        Musik &amp; Audio
-                    </button>
-                    <button onclick="filterCatalog('design', this)" class="catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-white shrink-0">
-                        Desain &amp; Editing
-                    </button>
-                    <button onclick="filterCatalog('ai-edu', this)" class="catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-white shrink-0">
-                        AI &amp; Edukasi
-                    </button>
-                    <button onclick="filterCatalog('utility', this)" class="catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-white shrink-0">
-                        Produktivitas
-                    </button>
+                <!-- Smart Category Pills with Live Counts -->
+                <div id="categoryFilterBar" class="flex items-center gap-1.5 overflow-x-auto scrollbar-none pt-3 mt-3 border-t border-slate-200/60 text-xs font-semibold">
+                    <!-- Rendered dynamically by renderCategoryFilterBar() -->
                 </div>
             </div>
 
-            <!-- 3D Blue-White Product Grid (Tanpa Duplikasi Kartu!) -->
-            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Main 3D Porcelain-Blue Catalog Grid (All 42 Official APKs) -->
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Rendered by JS -->
             </div>
         </section>
@@ -345,10 +359,10 @@
         <!-- VIEW 2: JAM OPERASIONAL & KONTAK RESMI     -->
         <!-- ========================================== -->
         <section id="workspaceInfoView" class="hidden">
-            <div class="card-3d-porcelain rounded-3xl overflow-hidden">
-                <div class="card-header-tint p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="porcelain-card-3d rounded-2xl overflow-hidden">
+                <div class="porcelain-card-header p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div onclick="handleSecretLogoTap()" class="flex items-center gap-3.5 cursor-pointer select-none">
-                        <div id="profileLogoContainer" class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border-2 border-blue-200 shadow-xs shrink-0 overflow-hidden">
+                        <div id="profileLogoContainer" class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-blue-200/80 shadow-xs shrink-0 overflow-hidden">
                             <svg viewBox="0 0 220 200" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="220" height="200" fill="#ffffff"/>
                                 <g fill="#0047bb" font-family="'Cinzel', serif" font-weight="900" font-size="92" text-anchor="middle">
@@ -365,39 +379,39 @@
                             </svg>
                         </div>
                         <div>
-                            <span class="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-100 border border-blue-200 px-2.5 py-0.5 rounded-full">Official Store</span>
-                            <h2 class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">MTStore Digital Premium</h2>
-                            <p class="text-xs text-slate-500">WhatsApp Resmi: <strong class="text-blue-700 tabular-price">0877-9233-8250</strong></p>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-700 block">MTSTORE DIGITAL PREMIUM</span>
+                            <h2 class="text-base sm:text-lg font-extrabold text-slate-900 mt-0.5">Informasi Operasional &amp; Layanan</h2>
+                            <p class="text-xs text-slate-500">WhatsApp Resmi: <strong class="text-slate-900 tabular-price">0877-9233-8250</strong></p>
                         </div>
                     </div>
-                    <button onclick="openDirectAdminChat()" class="btn-3d-royal px-5 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-sm"></i> Chat WhatsApp Admin
+                    <button onclick="openDirectAdminChat()" class="btn-sapphire-3d px-5 py-2.5 rounded-xl font-semibold text-xs flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-sm"></i> Hubungi WhatsApp Admin
                     </button>
                 </div>
 
                 <div class="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="slot-3d-item rounded-2xl p-4 space-y-2.5">
-                        <h3 class="text-xs font-extrabold uppercase tracking-wider text-blue-700 flex items-center gap-1.5">
-                            <i class="fas fa-clock"></i> Jam Operasional Layanan
-                        </h3>
+                    <div class="pkg-module-3d rounded-xl p-4 space-y-2.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 block">
+                            Jam Operasional Layanan
+                        </span>
                         <div class="text-xs space-y-2 pt-1">
-                            <div class="flex justify-between py-1 border-b border-blue-200/60">
-                                <span class="text-slate-600 font-medium">Selasa – Minggu</span>
-                                <span class="font-extrabold text-slate-900 tabular-price">08.00 – 22.00 WIB</span>
+                            <div class="flex justify-between py-1 border-b border-slate-100">
+                                <span class="text-slate-600">Selasa – Minggu</span>
+                                <span class="font-bold text-slate-900 tabular-price">08.00 – 22.00 WIB</span>
                             </div>
                             <div class="flex justify-between py-1">
-                                <span class="text-slate-600 font-medium">Hari Senin</span>
-                                <span class="font-extrabold text-rose-600">Libur Operasional</span>
+                                <span class="text-slate-600">Hari Senin</span>
+                                <span class="font-bold text-rose-600">Libur Operasional</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="slot-3d-item rounded-2xl p-4 space-y-2.5">
-                        <h3 class="text-xs font-extrabold uppercase tracking-wider text-blue-700 flex items-center gap-1.5">
-                            <i class="fas fa-shield-halved"></i> Alur Order &amp; Garansi
-                        </h3>
+                    <div class="pkg-module-3d rounded-xl p-4 space-y-2.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 block">
+                            Pembayaran QRIS &amp; Ketentuan Garansi
+                        </span>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Pilih paket aplikasi pada halaman katalog untuk membuat <b>Invoice Pesanan</b>. Panduan pemakaian beserta ketentuan garansi dikirimkan langsung bersama detail akun di WhatsApp.
+                            Pembayaran dilayani menggunakan <b>QRIS All Payment</b> yang dikirimkan langsung oleh Admin di ruang chat WhatsApp. Panduan pemakaian serta ketentuan garansi disertakan bersama pengiriman akun.
                         </p>
                     </div>
                 </div>
@@ -409,18 +423,18 @@
     <!-- FLOATING 3D INVOICE BAR (MUNCUL SAAT > 0)  -->
     <!-- ========================================== -->
     <div id="floatingCartBar" class="fixed bottom-4 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[460px] z-30 hidden">
-        <button type="button" onclick="openCartModal()" class="w-full p-3 rounded-2xl hero-3d-royalblue text-white flex items-center justify-between gap-3 transition active:translate-y-0.5">
+        <button type="button" onclick="openCartModal()" class="w-full p-3 rounded-2xl sapphire-monolith-3d text-white flex items-center justify-between gap-3 transition active:scale-98">
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 rounded-xl bg-white text-blue-700 flex items-center justify-center font-extrabold text-xs tabular-price shadow-xs" id="floatingCartCount">
                     0
                 </div>
                 <div class="text-left">
-                    <span class="text-[10px] text-sky-200 font-bold uppercase tracking-wider block leading-none mb-1">Invoice Pesanan Aktif</span>
+                    <span class="text-[10px] text-sky-200 font-semibold uppercase tracking-wider block leading-none mb-1">Ringkasan Invoice</span>
                     <span id="floatingCartTotal" class="text-sm font-extrabold text-white tabular-price">Rp 0</span>
                 </div>
             </div>
-            <span class="px-3.5 py-2 rounded-xl bg-white text-blue-700 font-extrabold text-xs flex items-center gap-1.5 shrink-0 shadow-xs">
-                Buka Invoice <i class="fas fa-arrow-right text-[10px]"></i>
+            <span class="px-3.5 py-2 rounded-xl bg-white text-slate-900 font-bold text-xs flex items-center gap-1.5 shrink-0 shadow-xs">
+                Buka Invoice <i class="fas fa-arrow-right text-[10px] text-blue-700"></i>
             </span>
         </button>
     </div>
@@ -428,56 +442,74 @@
     <!-- ========================================== -->
     <!-- MODAL INVOICE / STRUK ORDER DIGITAL        -->
     <!-- ========================================== -->
-    <div id="cartModal" onclick="closeCartModalOnBackdrop(event)" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-xs">
-        <div class="card-3d-porcelain w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 max-h-[90vh] flex flex-col text-slate-900" onclick="event.stopPropagation()">
+    <div id="cartModal" onclick="closeCartModalOnBackdrop(event)" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/60 backdrop-blur-xs">
+        <div class="porcelain-card-3d w-full max-w-md rounded-t-3xl sm:rounded-2xl p-5 sm:p-6 max-h-[92vh] flex flex-col text-slate-900" onclick="event.stopPropagation()">
             <!-- Invoice Header -->
-            <div class="flex items-start justify-between pb-4 border-b border-dashed border-blue-200">
+            <div class="flex items-start justify-between pb-3.5 border-b border-slate-200">
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md">OFFICIAL INVOICE</span>
-                        <span id="invoiceRefCode" class="text-[11px] font-bold text-slate-400 tabular-price">#INV-MT001</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-700 bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">OFFICIAL INVOICE</span>
+                        <span id="invoiceRefCode" class="text-[11px] font-semibold text-slate-400 tabular-price">#INV-MT001</span>
                     </div>
-                    <h3 class="text-base font-extrabold text-slate-900 mt-1.5">Ringkasan Pesanan MTStore</h3>
+                    <h3 class="text-base font-extrabold text-slate-900 mt-1">Ringkasan Pesanan MTStore</h3>
                 </div>
-                <button type="button" onclick="closeCartModal()" class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 flex items-center justify-center">
+                <button type="button" onclick="closeCartModal()" class="w-8 h-8 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center">
                     <i class="fas fa-times text-xs"></i>
                 </button>
             </div>
 
             <!-- Daftar Item di Invoice -->
-            <div id="cartItemsContainer" class="flex-1 overflow-y-auto py-4 space-y-2.5 text-xs">
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto py-3.5 space-y-2 text-xs">
                 <!-- Di-render oleh JS -->
             </div>
 
-            <!-- Catatan / Email Invite Pembeli Opsional -->
-            <div class="pt-3 border-t border-blue-100">
-                <label class="block text-[11px] font-bold text-slate-600 mb-1.5">Email Akun / Catatan Tambahan (Opsional)</label>
-                <input type="text" id="cartBuyerNote" placeholder="Cantumkan email jika memesan paket Invite (Canva/Spotify/YT)" class="w-full bg-blue-50/60 border border-blue-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-blue-600">
+            <!-- Metode Pembayaran Resmi: QRIS Manual via Admin WA -->
+            <div class="pt-3 border-t border-slate-200/80 space-y-2.5">
+                <div class="p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0">
+                            <i class="fas fa-qrcode text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs font-bold text-slate-900">Pembayaran: QRIS All Payment</span>
+                            </div>
+                            <p class="text-[10.5px] text-slate-500 leading-snug mt-0.5">
+                                Kode QRIS dikirimkan manual oleh Admin di chat WhatsApp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Email Akun / Catatan Tambahan (Opsional)</label>
+                    <input type="text" id="cartBuyerNote" placeholder="Cantumkan email jika memesan paket Invite (Canva/Spotify/YT)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-blue-600">
+                </div>
             </div>
 
             <!-- Invoice Footer Total & CTA -->
-            <div class="pt-4 border-t border-dashed border-blue-200 mt-3 space-y-3">
+            <div class="pt-3.5 border-t border-slate-200 mt-3 space-y-3">
                 <div class="flex items-center justify-between">
                     <div>
-                        <span class="text-[11px] font-semibold text-slate-500 block">Total Pembayaran</span>
+                        <span class="text-[11px] font-medium text-slate-500 block">Total Pembayaran</span>
                         <span id="cartModalTotal" class="text-lg font-extrabold text-blue-700 tabular-price">Rp 0</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                        <button type="button" onclick="copyInvoiceOrderText()" class="text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-2.5 py-1.5 rounded-lg transition" title="Salin teks pesanan">
+                        <button type="button" onclick="copyInvoiceOrderText()" class="text-[11px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-2.5 py-1.5 rounded-lg transition" title="Salin teks pesanan">
                             Salin Teks
                         </button>
-                        <button type="button" onclick="clearCart()" class="text-[11px] font-bold text-rose-600 hover:text-rose-700 px-2.5 py-1.5 rounded-lg hover:bg-rose-50 transition">
+                        <button type="button" onclick="clearCart()" class="text-[11px] font-semibold text-rose-600 hover:text-rose-700 px-2.5 py-1.5 rounded-lg hover:bg-rose-50 transition">
                             Reset
                         </button>
                     </div>
                 </div>
 
                 <div class="flex gap-2">
-                    <button type="button" onclick="closeCartModal()" class="w-1/3 py-2.5 rounded-xl btn-3d-white font-bold text-xs">
+                    <button type="button" onclick="closeCartModal()" class="w-1/3 py-2.5 rounded-xl btn-porcelain-3d font-semibold text-xs">
                         + Pilih Lagi
                     </button>
-                    <button type="button" onclick="checkoutCartToWA()" class="w-2/3 py-2.5 rounded-xl btn-3d-royal font-bold text-xs flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-sm"></i> Lanjutkan ke WhatsApp
+                    <button type="button" onclick="checkoutCartToWA()" class="w-2/3 py-2.5 rounded-xl btn-sapphire-3d font-semibold text-xs flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-sm"></i> Kirim Invoice &amp; Minta QRIS
                     </button>
                 </div>
             </div>
@@ -487,47 +519,47 @@
     <!-- ========================================== -->
     <!-- MODAL PIN OWNER (5x Tap Logo MT, PIN 221222)-->
     <!-- ========================================== -->
-    <div id="ownerPinModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-        <div class="card-3d-porcelain w-full max-w-xs rounded-3xl p-6 text-center">
-            <div class="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3 text-sm border border-blue-200">
+    <div id="ownerPinModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs">
+        <div class="porcelain-card-3d w-full max-w-xs rounded-2xl p-6 text-center">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3 text-sm border border-blue-200">
                 <i class="fas fa-lock"></i>
             </div>
             <h3 class="text-sm font-extrabold text-slate-900">Akses Administrator</h3>
             <p class="text-[11px] text-slate-500 mt-1 mb-4">Masukkan kode PIN Owner MTStore</p>
             <form onsubmit="verifyOwnerPin(event)">
-                <input type="password" id="ownerPinInput" maxlength="10" placeholder="••••••" class="w-full text-center text-lg tracking-widest font-bold bg-blue-50/70 border border-blue-200 text-slate-900 rounded-xl py-2.5 mb-3 focus:outline-none focus:bg-white focus:border-blue-600">
+                <input type="password" id="ownerPinInput" maxlength="10" placeholder="••••••" class="w-full text-center text-lg tracking-widest font-bold bg-slate-50 border border-slate-200 text-slate-900 rounded-xl py-2 mb-3 focus:outline-none focus:bg-white focus:border-blue-600">
                 <div class="flex gap-2">
-                    <button type="button" onclick="closeOwnerPinModal()" class="w-1/2 py-2.5 rounded-xl btn-3d-white font-bold text-xs">Batal</button>
-                    <button type="submit" class="w-1/2 py-2.5 rounded-xl btn-3d-royal font-bold text-xs">Masuk</button>
+                    <button type="button" onclick="closeOwnerPinModal()" class="w-1/2 py-2 rounded-xl btn-porcelain-3d font-semibold text-xs">Batal</button>
+                    <button type="submit" class="w-1/2 py-2 rounded-xl btn-sapphire-3d font-semibold text-xs">Masuk</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- ========================================== -->
-    <!-- MODAL PANEL OWNER: PRODUK, STATUS & SYNC   -->
+    <!-- MODAL PANEL OWNER: 42 APK & CLOUD SYNC     -->
     <!-- ========================================== -->
-    <div id="ownerPanelModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-900/65 backdrop-blur-xs">
-        <div class="card-3d-porcelain w-full max-w-2xl rounded-3xl p-5 max-h-[92vh] flex flex-col text-slate-900">
+    <div id="ownerPanelModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-950/65 backdrop-blur-xs">
+        <div class="porcelain-card-3d w-full max-w-2xl rounded-2xl p-5 max-h-[92vh] flex flex-col text-slate-900">
             <!-- Header Panel -->
-            <div class="flex items-center justify-between pb-3 border-b border-blue-100 mb-3">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-3">
                 <div>
-                    <h3 class="text-sm font-extrabold text-slate-900">Dashboard Administrator MTStore</h3>
-                    <p class="text-[11px] text-slate-500">Kelola Status Toko, Daftar Harga, Garansi &amp; Sinkronisasi Cloud</p>
+                    <h3 class="text-sm font-extrabold text-slate-900">Dashboard Administrator — MTStore Digital Premium</h3>
+                    <p class="text-[11px] text-slate-500">42 APK Siap Diisi Plan, Jenis Akun, Durasi &amp; Harga</p>
                 </div>
-                <button onclick="closeOwnerPanel()" class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 flex items-center justify-center">
+                <button onclick="closeOwnerPanel()" class="w-8 h-8 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
 
             <!-- Pengaturan Status Toko Manual / Otomatis + Logo + Subjudul -->
-            <div class="mb-3 p-3 rounded-2xl bg-blue-50/60 border border-blue-200 space-y-2.5">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 border-b border-blue-200/70">
+            <div class="mb-3 p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 border-b border-slate-200/80">
                     <div>
-                        <label class="block text-[10px] font-extrabold uppercase text-blue-900">Status Operasional Toko (Live):</label>
+                        <label class="block text-[10px] font-bold uppercase text-slate-700">Status Operasional Toko (Live):</label>
                         <p class="text-[10px] text-slate-500">Ubah manual jika sedang tutup lebih awal atau slow respon</p>
                     </div>
-                    <select id="storeStatusModeSelect" onchange="saveStoreStatusMode()" class="bg-white border border-blue-300 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-900 focus:outline-none focus:border-blue-600">
+                    <select id="storeStatusModeSelect" onchange="saveStoreStatusMode()" class="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600">
                         <option value="auto">Otomatis (08.00–22.00 WIB, Senin Libur)</option>
                         <option value="open">Buka Sekarang (Manual)</option>
                         <option value="slow">Slow Respon (Manual)</option>
@@ -537,14 +569,14 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <div class="flex items-center gap-1.5">
-                        <input type="url" id="customLogoUrlInput" placeholder="URL Logo Toko (opsional)" class="flex-1 bg-white border border-blue-200 rounded-xl px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
-                        <button type="button" onclick="saveCustomLogoUrl()" class="px-2.5 py-1.5 rounded-xl bg-blue-600 text-white font-bold text-[11px] shrink-0">
+                        <input type="url" id="customLogoUrlInput" placeholder="URL Logo Toko (opsional)" class="flex-1 bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
+                        <button type="button" onclick="saveCustomLogoUrl()" class="px-2.5 py-1.5 rounded-lg bg-blue-600 text-white font-semibold text-[11px] shrink-0">
                             Set Logo
                         </button>
                     </div>
                     <div class="flex items-center gap-1.5">
-                        <input type="text" id="customAnnouncementInput" placeholder="Subjudul Header Toko" class="flex-1 bg-white border border-blue-200 rounded-xl px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
-                        <button type="button" onclick="saveCustomAnnouncement()" class="px-2.5 py-1.5 rounded-xl bg-slate-800 text-white font-bold text-[11px] shrink-0">
+                        <input type="text" id="customAnnouncementInput" placeholder="Subjudul Header Toko" class="flex-1 bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
+                        <button type="button" onclick="saveCustomAnnouncement()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-white font-semibold text-[11px] shrink-0">
                             Set Teks
                         </button>
                     </div>
@@ -552,74 +584,71 @@
             </div>
 
             <!-- Switcher Tab Owner Panel: Produk vs Cloud Sync -->
-            <div class="grid grid-cols-2 gap-1.5 p-1 bg-blue-100/70 rounded-xl mb-3 text-xs font-bold">
+            <div class="grid grid-cols-2 gap-1.5 p-1 bg-slate-100 rounded-xl mb-3 text-xs font-semibold">
                 <button id="ownerTabProductsBtn" onclick="switchOwnerPanelTab('products')" class="py-1.5 rounded-lg bg-white text-blue-700 shadow-2xs">
-                    Daftar Produk &amp; Harga
+                    Kelola 42 APK &amp; Plan
                 </button>
                 <button id="ownerTabSyncBtn" onclick="switchOwnerPanelTab('sync')" class="py-1.5 rounded-lg text-slate-600 hover:text-slate-900">
                     Sinkronisasi &amp; Backup
                 </button>
             </div>
 
-            <!-- VIEW OWNER 1: PRODUK & HARGA -->
+            <!-- VIEW OWNER 1: 42 APK & PLAN -->
             <div id="ownerViewProducts" class="flex-1 flex flex-col overflow-hidden">
                 <div class="flex flex-col sm:flex-row gap-2 mb-2.5">
                     <div class="relative flex-1">
-                        <input type="text" id="ownerProductSearchInput" oninput="renderOwnerProductsList()" placeholder="Cari aplikasi atau paket di Admin..." class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
+                        <input type="text" id="ownerProductSearchInput" oninput="renderOwnerProductsList()" placeholder="Ketik nama APK dari 42 list (contoh: appmus, netflix, canva)..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
                     </div>
                     <div class="flex flex-wrap gap-1.5 shrink-0">
-                        <button type="button" onclick="openAddProductModal()" class="py-2 px-3 rounded-xl btn-3d-royal font-bold text-xs flex items-center justify-center gap-1">
-                            + Tambah Paket
+                        <button type="button" onclick="openAddProductModal()" class="py-2 px-3.5 rounded-lg btn-sapphire-3d font-semibold text-xs flex items-center justify-center gap-1.5">
+                            + Tambah Plan Baru
                         </button>
-                        <button type="button" onclick="confirmResetDefault()" class="py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-xs hover:bg-emerald-100 transition shrink-0" title="Muat 48 Paket Default">
-                            Muat 48 Paket
-                        </button>
-                        <button type="button" onclick="deleteAllProducts()" class="py-2 px-3 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 font-bold text-xs hover:bg-rose-100 transition shrink-0" title="Kosongkan Semua Produk">
-                            Kosongkan
+                        <button type="button" onclick="deleteAllProducts()" class="py-2 px-3 rounded-lg bg-rose-50 text-rose-600 border border-rose-200 font-semibold text-xs hover:bg-rose-100 transition shrink-0" title="Kosongkan Semua Plan">
+                            Reset Plan
                         </button>
                     </div>
                 </div>
-                <div class="overflow-y-auto space-y-2 pr-1 text-xs flex-1" id="ownerProductList"></div>
+                <div class="overflow-y-auto space-y-2.5 pr-1 text-xs flex-1" id="ownerProductList"></div>
             </div>
 
             <!-- VIEW OWNER 2: UPDATE PERMANEN KE GITHUB & BACKUP JSON -->
             <div id="ownerViewSync" class="flex-1 flex flex-col overflow-y-auto hidden space-y-3 text-xs pr-1">
-                <div class="p-3.5 bg-blue-50/60 border border-blue-200 rounded-2xl text-[11px] text-slate-900 space-y-2.5">
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-[11px] text-slate-900 space-y-2.5">
                     <div class="flex items-center justify-between gap-2">
                         <strong class="text-slate-900 flex items-center gap-1.5 text-xs">
                             <i class="fab fa-github text-sm"></i> Sinkronisasi Cloud GitHub
                         </strong>
-                        <span id="ghTokenStatusBadge" class="px-2 py-0.5 rounded-md text-[9px] font-bold bg-emerald-600 text-white">
+                        <span id="ghTokenStatusBadge" class="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-600 text-white">
                             Auto-Sync Aktif
                         </span>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
                         <div class="sm:col-span-5">
                             <label class="block text-[9px] font-bold uppercase text-slate-500 mb-0.5">Nama Repo GitHub:</label>
-                            <input type="text" id="ghRepoInput" value="h1m1t4dc-prog/mtstore" placeholder="h1m1t4dc-prog/mtstore" class="w-full bg-white border border-blue-200 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
+                            <input type="text" id="ghRepoInput" value="h1m1t4dc-prog/mtstore" placeholder="h1m1t4dc-prog/mtstore" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
                         </div>
                         <div class="sm:col-span-7">
                             <label class="block text-[9px] font-bold uppercase text-slate-500 mb-0.5">Token GitHub (ghp_...):</label>
-                            <input type="password" id="ghTokenInput" placeholder="Tempel kode ghp_xxxxxxxxxxxx di sini" class="w-full bg-white border border-blue-200 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
+                            <input type="password" id="ghTokenInput" placeholder="Tempel kode ghp_xxxxxxxxxxxx di sini" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-900 focus:outline-none focus:border-blue-600">
                         </div>
                     </div>
                     <div class="flex gap-2">
-                        <button type="button" onclick="saveGithubConfig()" class="flex-1 py-2 px-3 rounded-xl btn-3d-royal font-bold text-[11px] flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="saveGithubConfig()" class="flex-1 py-2 px-3 rounded-lg btn-sapphire-3d font-semibold text-[11px] flex items-center justify-center gap-1.5">
                             Simpan Token &amp; Push Sekarang
                         </button>
-                        <button type="button" onclick="clearGithubConfig()" class="py-2 px-3 rounded-xl bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-bold text-[11px] transition">
+                        <button type="button" onclick="clearGithubConfig()" class="py-2 px-3 rounded-lg bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-semibold text-[11px] transition">
                             Reset Token
                         </button>
                     </div>
                 </div>
 
-                <div class="p-3.5 bg-blue-50/60 border border-blue-200 rounded-2xl text-[11px] text-slate-700 space-y-2">
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-[11px] text-slate-700 space-y-2">
                     <strong class="text-slate-900 block">Export Manual File HTML (Opsional):</strong>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <button type="button" onclick="copyUpdatedFullHtml()" class="py-2 px-3 rounded-xl btn-3d-white font-bold text-xs flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="copyUpdatedFullHtml()" class="py-2 px-3 rounded-lg btn-porcelain-3d font-semibold text-xs flex items-center justify-center gap-1.5">
                             Salin Full Kode HTML
                         </button>
-                        <button type="button" onclick="downloadUpdatedFullHtml()" class="py-2 px-3 rounded-xl btn-3d-white font-bold text-xs flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="downloadUpdatedFullHtml()" class="py-2 px-3 rounded-lg btn-porcelain-3d font-semibold text-xs flex items-center justify-center gap-1.5">
                             Download index.html
                         </button>
                     </div>
@@ -634,14 +663,14 @@
                     </div>
                     <textarea id="ownerBackupTextarea" rows="3" class="w-full bg-slate-900 text-blue-100 text-[10px] p-2.5 rounded-xl border border-slate-700 focus:outline-none"></textarea>
                 </div>
-                <button type="button" onclick="importBackupJson()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs">
+                <button type="button" onclick="importBackupJson()" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-slate-900 text-white font-semibold text-xs">
                     Restore Data dari JSON
                 </button>
             </div>
 
-            <div class="pt-3 border-t border-blue-100 flex items-center justify-between mt-3 gap-2">
-                <button onclick="closeOwnerPanel()" class="w-1/3 py-2.5 rounded-xl btn-3d-white font-bold text-xs">Tutup</button>
-                <button onclick="saveOwnerChanges()" class="w-2/3 py-2.5 btn-3d-royal font-bold rounded-xl text-xs">
+            <div class="pt-3 border-t border-slate-200 flex items-center justify-between mt-3 gap-2">
+                <button onclick="closeOwnerPanel()" class="w-1/3 py-2 rounded-xl btn-porcelain-3d font-semibold text-xs">Tutup</button>
+                <button onclick="saveOwnerChanges()" class="w-2/3 py-2 btn-sapphire-3d font-semibold rounded-xl text-xs">
                     Simpan &amp; Sinkronkan Perubahan
                 </button>
             </div>
@@ -649,25 +678,37 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- MODAL FORM TAMBAH APLIKASI / VARIAN BARU   -->
+    <!-- MODAL FORM TAMBAH PLAN / JENIS AKUN CEPAT  -->
     <!-- ========================================== -->
-    <div id="addProductModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/65 backdrop-blur-xs">
-        <div class="card-3d-porcelain w-full max-w-md rounded-3xl p-5 text-slate-900">
-            <div class="flex items-center justify-between pb-3 border-b border-blue-100 mb-3">
-                <h3 class="text-sm font-extrabold text-slate-900">+ Tambah Paket / Varian Layanan</h3>
-                <button type="button" onclick="closeAddProductModal()" class="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+    <div id="addProductModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-950/65 backdrop-blur-xs">
+        <div class="porcelain-card-3d w-full max-w-lg rounded-2xl p-5 text-slate-900 max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-3">
+                <div>
+                    <h3 class="text-sm font-extrabold text-slate-900">+ Input Plan / Jenis Akun &amp; Harga</h3>
+                    <p class="text-[10.5px] text-slate-500">Pilih dari 42 APK resmi atau ketik bebas, lalu isi plan &amp; harganya</p>
+                </div>
+                <button type="button" onclick="closeAddProductModal()" class="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center">
                     <i class="fas fa-times text-xs"></i>
                 </button>
             </div>
-            <form onsubmit="submitNewProductForm(event)" class="space-y-3 text-xs">
+
+            <form onsubmit="submitNewProductForm(event, false)" class="space-y-3 text-xs">
+                <!-- Quick App Picker Chips (All 42 Official APKs) -->
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Pilih Cepat 42 APK MTStore (Geser &amp; Ketuk):</label>
+                    <div id="modalQuickApkBar" class="flex items-center gap-1.5 overflow-x-auto scrollbar-none pb-1">
+                        <!-- Populated from MASTER_APK_LIST -->
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-2 gap-2.5">
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-600 mb-1">Nama Aplikasi (Contoh: Netflix)</label>
-                        <input type="text" id="newProdBrand" required placeholder="Nama Aplikasi..." class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
+                        <label class="block text-[10px] font-bold text-slate-600 mb-1">Nama APK / Layanan</label>
+                        <input type="text" id="newProdBrand" required placeholder="Ketik nama APK..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:bg-white focus:border-blue-600">
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-slate-600 mb-1">Kategori</label>
-                        <select id="newProdCategory" class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
+                        <select id="newProdCategory" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-medium focus:outline-none focus:bg-white focus:border-blue-600">
                             <option value="streaming">Hiburan &amp; Streaming</option>
                             <option value="music">Musik &amp; Audio</option>
                             <option value="design">Desain &amp; Editing</option>
@@ -676,44 +717,85 @@
                         </select>
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-2.5">
-                    <div class="col-span-2">
-                        <label class="block text-[10px] font-bold text-slate-600 mb-1">Nama Varian Paket</label>
-                        <input type="text" id="newProdName" required placeholder="Contoh: Sharing 1P1U / Private" class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
+
+                <!-- Jenis Akun / Plan Input + Quick Tag Chips -->
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="text-[10px] font-bold text-slate-600">Jenis Plan / Tipe Akun</label>
+                        <span class="text-[9.5px] text-slate-400">Ketuk tag di bawah atau ketik bebas</span>
+                    </div>
+                    <input type="text" id="newProdName" required placeholder="Contoh: Sharing 1P1U / Private / Famplan / Crack..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:bg-white focus:border-blue-600 mb-1.5">
+                    <div class="flex flex-wrap gap-1">
+                        <button type="button" onclick="quickPickPlanName('Sharing 1P1U')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Sharing 1P1U</button>
+                        <button type="button" onclick="quickPickPlanName('Sharing 1P2U')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Sharing 1P2U</button>
+                        <button type="button" onclick="quickPickPlanName('Semi Private')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Semi Private</button>
+                        <button type="button" onclick="quickPickPlanName('Private')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Private</button>
+                        <button type="button" onclick="quickPickPlanName('Invite Email')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Invite Email</button>
+                        <button type="button" onclick="quickPickPlanName('Indplan')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Indplan</button>
+                        <button type="button" onclick="quickPickPlanName('Famplan')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Famplan</button>
+                        <button type="button" onclick="quickPickPlanName('Akun Admin')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Akun Admin</button>
+                        <button type="button" onclick="quickPickPlanName('Login TV')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Login TV</button>
+                        <button type="button" onclick="quickPickPlanName('Crack / Mod')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Crack / Mod</button>
+                    </div>
+                </div>
+
+                <!-- Durasi Input + Quick Duration Chips -->
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-600 mb-1">Durasi Plan</label>
+                    <input type="text" id="newProdDuration" required value="1 Bulan" placeholder="Contoh: 1 Hari / 7 Hari / 1 Bulan / 1 Tahun / -" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-medium focus:outline-none focus:bg-white focus:border-blue-600 mb-1.5">
+                    <div class="flex flex-wrap gap-1">
+                        <button type="button" onclick="quickPickDuration('1 Hari')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">1 Hari</button>
+                        <button type="button" onclick="quickPickDuration('3 Hari')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">3 Hari</button>
+                        <button type="button" onclick="quickPickDuration('7 Hari')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">7 Hari</button>
+                        <button type="button" onclick="quickPickDuration('1 Bulan')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">1 Bulan</button>
+                        <button type="button" onclick="quickPickDuration('2 Bulan')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">2 Bulan</button>
+                        <button type="button" onclick="quickPickDuration('3 Bulan')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">3 Bulan</button>
+                        <button type="button" onclick="quickPickDuration('6 Bulan')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">6 Bulan</button>
+                        <button type="button" onclick="quickPickDuration('1 Tahun')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">1 Tahun</button>
+                        <button type="button" onclick="quickPickDuration('Lifetime')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Lifetime</button>
+                        <button type="button" onclick="quickPickDuration('Random Dur')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Random Dur</button>
+                        <button type="button" onclick="quickPickDuration('-')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 text-[10px] font-medium">Tanpa Durasi (-)</button>
+                    </div>
+                </div>
+
+                <!-- Harga & Status Garansi -->
+                <div class="grid grid-cols-2 gap-2.5">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 mb-1">Harga (Rp)</label>
+                        <input type="number" id="newProdPrice" required placeholder="Contoh: 15000" min="100" step="100" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-bold text-blue-700 tabular-price focus:outline-none focus:bg-white focus:border-blue-600">
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-slate-600 mb-1">Status Garansi</label>
-                        <select id="newProdWarranty" class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-2.5 py-2 text-blue-700 font-bold focus:outline-none focus:bg-white focus:border-blue-600">
+                        <select id="newProdWarranty" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-2 text-blue-700 font-semibold focus:outline-none focus:bg-white focus:border-blue-600">
                             <option value="Bergaransi">Bergaransi</option>
                             <option value="No Garansi">No Garansi</option>
                         </select>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-2.5">
-                    <div>
-                        <label class="block text-[10px] font-bold text-slate-600 mb-1">Durasi Paket (atau isi -)</label>
-                        <input type="text" id="newProdDuration" required value="1 Bulan" placeholder="1 Bulan / 1 Tahun / -" class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-bold text-slate-600 mb-1">Harga (Rp)</label>
-                        <input type="number" id="newProdPrice" required value="25000" min="500" step="500" class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 font-bold text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
-                    </div>
-                </div>
+
+                <!-- Catatan Opsional -->
                 <div>
-                    <label class="block text-[10px] font-bold text-slate-600 mb-1">Keterangan Spesifikasi Paket</label>
-                    <input type="text" id="newProdDesc" required value="1 Profil ber-PIN, 4K Ultra HD" placeholder="Contoh: Invite email pribadi / 4K UHD" class="w-full bg-blue-50/50 border border-blue-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
+                    <label class="block text-[10px] font-bold text-slate-600 mb-1">Keterangan Tambahan (Opsional — Boleh Dikosongkan)</label>
+                    <input type="text" id="newProdDesc" placeholder="Contoh: 1 Device / All Device / Akun dari pembeli (boleh kosong)" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-blue-600">
                 </div>
-                <div class="flex gap-2 pt-2">
-                    <button type="button" onclick="closeAddProductModal()" class="w-1/3 py-2.5 rounded-xl btn-3d-white font-bold">Batal</button>
-                    <button type="submit" class="w-2/3 py-2.5 rounded-xl btn-3d-royal font-bold">Simpan Paket</button>
+
+                <!-- Action Buttons: Rapid Add Another vs Save & Close -->
+                <div class="pt-2 space-y-2">
+                    <button type="button" onclick="submitNewProductForm(null, true)" class="w-full py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs transition">
+                        + Simpan &amp; Lanjut Tambah Plan Lain di APK Ini
+                    </button>
+                    <div class="flex gap-2">
+                        <button type="button" onclick="closeAddProductModal()" class="w-1/3 py-2.5 rounded-xl btn-porcelain-3d font-semibold">Batal</button>
+                        <button type="submit" class="w-2/3 py-2.5 rounded-xl btn-sapphire-3d font-semibold">Simpan &amp; Selesai</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Subtle Dismissible Toast (Selalu Hidden secara Default) -->
-    <div id="toastNotification" onclick="hideToast()" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2 px-4 py-2 rounded-xl bg-blue-950 text-white text-xs font-bold shadow-xl cursor-pointer border border-blue-400">
-        <i id="toastIcon" class="fas fa-check text-sky-300 text-xs"></i>
+    <div id="toastNotification" onclick="hideToast()" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold shadow-xl cursor-pointer border border-blue-400/30">
+        <i id="toastIcon" class="fas fa-check text-sky-400 text-xs"></i>
         <span id="toastMessage">Tersimpan</span>
     </div>
 
@@ -751,7 +833,63 @@
             </svg>
         `;
 
-        // Custom Vector SVG Logos for 32+ Brands inside 3D Keycaps
+        // Master List of the User's Exact 42 APKs (in alphabetical order matching their menu)
+        const MASTER_APK_LIST = [
+            { key: "alight motion", name: "Alight Motion", category: "design", aliases: ["am", "alight motion"] },
+            { key: "appmus", name: "Appmus", category: "music", aliases: ["apple music", "appmus"] },
+            { key: "bstation", name: "Bstation", category: "streaming", aliases: ["bilibili", "bstation"] },
+            { key: "camscanner", name: "CamScanner", category: "utility", aliases: ["camscanner", "cs"] },
+            { key: "canva", name: "Canva", category: "design", aliases: ["canva pro", "canva"] },
+            { key: "capcut", name: "CapCut", category: "design", aliases: ["capcut pro", "capcut"] },
+            { key: "catchplay+", name: "Catchplay+", category: "streaming", aliases: ["catchplay", "catchplay+"] },
+            { key: "chatgpt", name: "ChatGPT", category: "ai-edu", aliases: ["gpt", "openai", "chatgpt"] },
+            { key: "dazzcam", name: "Dazzcam", category: "design", aliases: ["dazz cam", "dazzcam"] },
+            { key: "disney", name: "Disney", category: "streaming", aliases: ["disney+", "disney hotstar", "disney"] },
+            { key: "duolingo", name: "Duolingo", category: "ai-edu", aliases: ["duolingo super", "duolingo"] },
+            { key: "gemini", name: "Gemini", category: "ai-edu", aliases: ["google gemini", "gemini"] },
+            { key: "getcontact", name: "Getcontact", category: "utility", aliases: ["gtc", "getcontact"] },
+            { key: "grammarly", name: "Grammarly", category: "ai-edu", aliases: ["grammarly"] },
+            { key: "hbo", name: "HBO", category: "streaming", aliases: ["hbo max", "hbo go", "hbo"] },
+            { key: "ibis paint", name: "Ibis Paint", category: "design", aliases: ["ibispaint", "ibis paint x", "ibis paint"] },
+            { key: "iqiyi", name: "iQIYI", category: "streaming", aliases: ["iqiyi"] },
+            { key: "lightroom", name: "Lightroom", category: "design", aliases: ["adobe lightroom", "lr", "lightroom"] },
+            { key: "loklok", name: "Loklok", category: "streaming", aliases: ["loklok"] },
+            { key: "meitu", name: "Meitu", category: "design", aliases: ["meitu"] },
+            { key: "ms365", name: "MS365", category: "utility", aliases: ["ms 365", "microsoft 365", "office 365", "ms365"] },
+            { key: "netflix", name: "Netflix", category: "streaming", aliases: ["nf", "netflix"] },
+            { key: "picsart", name: "Picsart", category: "design", aliases: ["picsart"] },
+            { key: "polarr", name: "Polarr", category: "design", aliases: ["polarr"] },
+            { key: "prime", name: "Prime", category: "streaming", aliases: ["prime video", "amazon prime", "prime"] },
+            { key: "quillbot", name: "Quillbot", category: "ai-edu", aliases: ["quillbot"] },
+            { key: "remini", name: "Remini", category: "design", aliases: ["remini"] },
+            { key: "scribd", name: "Scribd", category: "ai-edu", aliases: ["everand", "scribd"] },
+            { key: "spotify", name: "Spotify", category: "music", aliases: ["spotify"] },
+            { key: "strava", name: "Strava", category: "utility", aliases: ["strava"] },
+            { key: "stremio", name: "Stremio", category: "streaming", aliases: ["stremio"] },
+            { key: "sushiroll", name: "Sushiroll", category: "streaming", aliases: ["sushiroll"] },
+            { key: "vidio", name: "Vidio", category: "streaming", aliases: ["vidio"] },
+            { key: "viki", name: "Viki", category: "streaming", aliases: ["rakuten viki", "viki"] },
+            { key: "viu", name: "Viu", category: "streaming", aliases: ["viu"] },
+            { key: "vsco", name: "VSCO", category: "design", aliases: ["vsco"] },
+            { key: "wattpad", name: "Wattpad", category: "ai-edu", aliases: ["wattpad"] },
+            { key: "wetv", name: "WeTV", category: "streaming", aliases: ["wetv"] },
+            { key: "wink", name: "Wink", category: "design", aliases: ["wink"] },
+            { key: "youku", name: "Youku", category: "streaming", aliases: ["youku"] },
+            { key: "youtube", name: "YouTube", category: "streaming", aliases: ["yt", "youtube premium", "youtube"] },
+            { key: "zoom", name: "Zoom", category: "utility", aliases: ["zoom meeting", "zoom"] }
+        ];
+
+        function normalizeMasterBrandKey(rawBrand) {
+            const clean = (rawBrand || '').trim().toLowerCase();
+            for (const item of MASTER_APK_LIST) {
+                if (item.key === clean || item.name.toLowerCase() === clean || item.aliases.includes(clean)) {
+                    return item.key;
+                }
+            }
+            return clean;
+        }
+
+        // Custom Vector SVG Logos for all 42 APKs & aliases
         const BRAND_VISUALS = {
             "netflix": {
                 bg: "linear-gradient(145deg, #2b0004 0%, #09090b 100%)",
@@ -761,15 +899,15 @@
                 bg: "linear-gradient(145deg, #ff1a1a 0%, #990000 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="#ffffff"><path d="M21.58 7.19a2.51 2.51 0 00-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42a2.51 2.51 0 00-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81a2.51 2.51 0 001.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42a2.51 2.51 0 001.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>`
             },
-            "disney+": {
+            "disney": {
                 bg: "linear-gradient(145deg, #061547 0%, #0f43b8 100%)",
                 svg: `<svg viewBox="0 0 28 24" class="w-3/5 h-3/5" fill="none"><path d="M4 13C7.5 6 18 5.5 22 11.5" stroke="#7dd3fc" stroke-width="1.8" stroke-linecap="round"/><path d="M21.5 7l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z" fill="#bae6fd"/><path d="M6 12.5h4.2c2.8 0 4.8 1.5 4.8 3.8 0 2.3-2 3.7-4.8 3.7H6v-7.5zm2.2 1.8v3.9H10c1.5 0 2.5-.8 2.5-2s-1-1.9-2.5-1.9H8.2z" fill="#ffffff"/><path d="M20.5 13v2.2h2.2v1.6h-2.2V19h-1.7v-2.2h-2.2v-1.6h2.2V13h1.7z" fill="#7dd3fc"/></svg>`
             },
-            "prime video": {
+            "prime": {
                 bg: "linear-gradient(145deg, #00A8E1 0%, #005b82 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M8.5 7.5l8 4-8 4v-8z" fill="#ffffff"/><path d="M4 17.5c4.5 3.2 11.5 3.2 16 0" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/><path d="M18.2 16.2l2.3 1-1 2.3" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
             },
-            "hbo max": {
+            "hbo": {
                 bg: "linear-gradient(145deg, #1d4ed8 0%, #091538 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><circle cx="12" cy="12" r="7.5" stroke="#ffffff" stroke-width="2.4"/><circle cx="12" cy="12" r="3" fill="#93c5fd"/></svg>`
             },
@@ -821,15 +959,15 @@
                 bg: "linear-gradient(145deg, #1DB954 0%, #127a36 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M6 9.5c4-1.2 8.5-.9 12 1M7 13c3.2-.9 6.8-.7 9.8.8M8.2 16.2c2.4-.6 5.2-.4 7.4.6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>`
             },
-            "apple music": {
+            "appmus": {
                 bg: "linear-gradient(145deg, #fb233b 0%, #c91229 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M9 17V7.5l8-1.8V15" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="17" r="2.2" fill="#ffffff"/><circle cx="15" cy="15" r="2.2" fill="#ffffff"/></svg>`
             },
-            "canva pro": {
+            "canva": {
                 bg: "linear-gradient(135deg, #00C4CC 0%, #0052cc 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#ffffff" stroke-width="1.8" opacity="0.85"/><path d="M14.8 8.8a4.2 4.2 0 100 6.4" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>`
             },
-            "capcut pro": {
+            "capcut": {
                 bg: "linear-gradient(145deg, #18181b 0%, #09090b 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none" stroke="#ffffff" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7l16 10M4 17L20 7M4 7v10M20 7v10"/></svg>`
             },
@@ -861,7 +999,7 @@
                 bg: "linear-gradient(145deg, #1d4ed8 0%, #09256e 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M12 4.5l2.2 5.3 5.3 2.2-5.3 2.2L12 19.5l-2.2-5.3-5.3-2.2 5.3-2.2L12 4.5z" fill="#93c5fd" stroke="#ffffff" stroke-width="1.4"/></svg>`
             },
-            "dazz cam": {
+            "dazzcam": {
                 bg: "linear-gradient(145deg, #292524 0%, #1c1917 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><rect x="3.5" y="6.5" width="17" height="12" rx="3" stroke="#fcd34d" stroke-width="2"/><circle cx="12" cy="12.5" r="3.2" stroke="#ffffff" stroke-width="2"/><circle cx="16.8" cy="9.2" r="1" fill="#fcd34d"/></svg>`
             },
@@ -901,7 +1039,7 @@
                 bg: "linear-gradient(145deg, #f97316 0%, #ea580c 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M4.5 7.5l3.2 9 4.3-6.5 4.3 6.5 3.2-9" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
             },
-            "ms 365": {
+            "ms365": {
                 bg: "linear-gradient(145deg, #ea580c 0%, #c2410c 100%)",
                 svg: `<svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="#ffffff"><rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1"/><rect x="13" y="4.5" width="6.5" height="6.5" rx="1" opacity="0.85"/><rect x="4.5" y="13" width="6.5" height="6.5" rx="1" opacity="0.85"/><rect x="13" y="13" width="6.5" height="6.5" rx="1" opacity="0.7"/></svg>`
             },
@@ -924,12 +1062,12 @@
         };
 
         function getBrandTileHtml(brandName, sizeClass = "w-11 h-11") {
-            const key = (brandName || '').trim().toLowerCase();
+            const key = normalizeMasterBrandKey(brandName);
             const v = BRAND_VISUALS[key];
             if (v && v.svg) {
-                return `<div class="${sizeClass} keycap-3d-icon flex items-center justify-center shrink-0" style="background:${v.bg}">${v.svg}</div>`;
+                return `<div class="${sizeClass} emblem-3d flex items-center justify-center shrink-0" style="background:${v.bg}">${v.svg}</div>`;
             }
-            return `<div class="${sizeClass} keycap-3d-icon flex items-center justify-center shrink-0" style="background:linear-gradient(145deg, #0052cc 0%, #002b80 100%)"><svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M12 3.5l8 4.5v8l-8 4.5-8-4.5V8l8-4.5z" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#93c5fd"/></svg></div>`;
+            return `<div class="${sizeClass} emblem-3d flex items-center justify-center shrink-0" style="background:linear-gradient(145deg, #0052cc 0%, #002b80 100%)"><svg viewBox="0 0 24 24" class="w-1/2 h-1/2" fill="none"><path d="M12 3.5l8 4.5v8l-8 4.5-8-4.5V8l8-4.5z" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#93c5fd"/></svg></div>`;
         }
 
         const CATEGORY_LABELS = {
@@ -940,7 +1078,6 @@
             "utility": "Produktivitas"
         };
 
-        // Smart helper: detects "No Garansi" even if owner typed "nogar" or "no garansi" in desc/name!
         function resolveWarrantyStatus(p) {
             if (!p) return 'Bergaransi';
             if (p.warranty === 'No Garansi') return 'No Garansi';
@@ -952,70 +1089,11 @@
         }
 
         /*__MTSTORE_DATA_START__*/
-        const STORE_DATA_VERSION = "v19_bluewhite_3d";
+        const STORE_DATA_VERSION = "v23_42apk_digital_premium";
         const DEFAULT_CUSTOM_LOGO_URL = "";
-        const DEFAULT_ANNOUNCEMENT_TEXT = "Official Digital Subscription Catalog";
+        const DEFAULT_ANNOUNCEMENT_TEXT = "MTStore Digital Premium";
         const DEFAULT_STORE_STATUS_MODE = "auto";
-        const DEFAULT_PRODUCTS = [
-            // Streaming / Movie
-            { id: "netflix-1p1u", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Sharing 1P1U (1 Profil 1 User)", duration: "1 Bulan", price: 35000, stock: "Ready Stock", warranty: "Bergaransi", desc: "1 Profil privat ber-PIN, 4K Ultra HD" },
-            { id: "netflix-private", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Private Account (Akun Utuh)", duration: "1 Bulan", price: 120000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akun utuh 5 profil milik sendiri" },
-            { id: "netflix-crack", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Netflix Mod / Crack Android", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "No Garansi", desc: "Khusus perangkat smartphone Android" },
-            { id: "netflix-link", category: "streaming", brand: "Netflix", brandClass: "brand-netflix", brandIcon: "fas fa-film", name: "Netflix Login Link / TV Access", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akses login praktis via tautan/TV" },
-            { id: "youtube-prem", category: "streaming", brand: "YouTube", brandClass: "brand-youtube", brandIcon: "fab fa-youtube", name: "YouTube Premium + Music Invite", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Bebas iklan, background play & YT Music" },
-            { id: "youtube-ind", category: "streaming", brand: "YouTube", brandClass: "brand-youtube", brandIcon: "fab fa-youtube", name: "YouTube Individual (Akun Admin)", duration: "1 Bulan", price: 22000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akun dari admin, bebas limit family" },
-            { id: "disney-prem", category: "streaming", brand: "Disney+", brandClass: "brand-disney", brandIcon: "fas fa-tv", name: "Disney+ Hotstar Plan", duration: "1 Bulan", price: 30000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Streaming Marvel, Disney, Pixar Full HD" },
-            { id: "prime-video", category: "streaming", brand: "Prime Video", brandClass: "brand-prime", brandIcon: "fas fa-film", name: "Amazon Prime Video", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Film box office & serial Amazon Originals" },
-            { id: "hbo-max", category: "streaming", brand: "HBO Max", brandClass: "brand-hbo", brandIcon: "fas fa-tv", name: "HBO Max / Go", duration: "1 Bulan", price: 28000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Serial Warner Bros & Hollywood eksklusif" },
-            { id: "vidio-prem", category: "streaming", brand: "Vidio", brandClass: "brand-vidio", brandIcon: "fas fa-play-circle", name: "Vidio Platinum", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Tayangan olahraga, serial & film lokal" },
-            { id: "viu-prem", category: "streaming", brand: "Viu", brandClass: "brand-viu", brandIcon: "fas fa-play", name: "Viu Premium Anti-Iklan", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Drama Korea, anime & series Asia" },
-            { id: "wetv-prem", category: "streaming", brand: "WeTV", brandClass: "brand-wetv", brandIcon: "fas fa-video", name: "WeTV VIP Fast Track", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Drama China & serial Indonesia VIP" },
-            { id: "iqiyi-prem", category: "streaming", brand: "iQIYI", brandClass: "brand-iqiyi", brandIcon: "fas fa-tv", name: "iQIYI VIP Standard", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Anime & drama Asia resolusi tinggi" },
-            { id: "bstation-prem", category: "streaming", brand: "Bstation", brandClass: "brand-bstation", brandIcon: "fas fa-film", name: "Bstation / Bilibili VIP", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Koleksi anime resmi 1080P/4K" },
-            { id: "catchplay-prem", category: "streaming", brand: "Catchplay+", brandClass: "brand-vidio", brandIcon: "fas fa-video", name: "Catchplay+ Movie Lover", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Film bioskop terbaru & serial dunia" },
-            { id: "loklok-prem", category: "streaming", brand: "Loklok", brandClass: "brand-viu", brandIcon: "fas fa-play", name: "Loklok VIP", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Streaming film & serial subtitle Indo" },
-            { id: "viki-prem", category: "streaming", brand: "Viki", brandClass: "brand-prime", brandIcon: "fas fa-globe", name: "Rakuten Viki Pass", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Koleksi drama Korea & Asia lengkap" },
-            { id: "youku-prem", category: "streaming", brand: "Youku", brandClass: "brand-wetv", brandIcon: "fas fa-play-circle", name: "Youku VIP", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Drama Asia & variety show eksklusif" },
-            { id: "sushiroll-prem", category: "streaming", brand: "Sushiroll", brandClass: "brand-vidio", brandIcon: "fas fa-tv", name: "Sushiroll Anime VIP", duration: "1 Bulan", price: 12000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Streaming anime subtitle Indonesia" },
-            { id: "stremio-prem", category: "streaming", brand: "Stremio", brandClass: "brand-hbo", brandIcon: "fas fa-compact-disc", name: "Stremio + RealDebrid Setup", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Media hub streaming film & serial" },
-
-            // Musik
-            { id: "spotify-indiv", category: "music", brand: "Spotify", brandClass: "brand-spotify", brandIcon: "fab fa-spotify", name: "Spotify Individual Plan", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Bebas iklan, unduh lagu offline" },
-            { id: "spotify-famplan", category: "music", brand: "Spotify", brandClass: "brand-spotify", brandIcon: "fab fa-spotify", name: "Spotify Family Invite", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Invite langsung ke akun email pribadi" },
-            { id: "applemusic-prem", category: "music", brand: "Apple Music", brandClass: "brand-apple", brandIcon: "fab fa-apple", name: "Apple Music Premium", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Spatial Audio & kualitas Lossless" },
-
-            // Desain & Foto / Video Editing
-            { id: "canva-1m", category: "design", brand: "Canva Pro", brandClass: "brand-canva", brandIcon: "fas fa-palette", name: "Canva Pro Team Invite", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Invite ke email pribadi, akses semua elemen Pro" },
-            { id: "canva-lifetime", category: "design", brand: "Canva Pro", brandClass: "brand-canva", brandIcon: "fas fa-palette", name: "Canva Pro Lifetime Access", duration: "Lifetime", price: 95000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akses jangka panjang tanpa biaya bulanan" },
-            { id: "capcut-pro", category: "design", brand: "CapCut Pro", brandClass: "brand-capcut", brandIcon: "fas fa-video", name: "CapCut Pro Sharing", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Buka semua efek Pro & export 4K" },
-            { id: "capcut-priv", category: "design", brand: "CapCut Pro", brandClass: "brand-capcut", brandIcon: "fas fa-video", name: "CapCut Pro Private", duration: "1 Bulan", price: 45000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akun privat khusus penggunaan sendiri" },
-            { id: "alight-motion", category: "design", brand: "Alight Motion", brandClass: "brand-am", brandIcon: "fas fa-play", name: "Alight Motion Pro (AM)", duration: "1 Tahun", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Animasi, efek visual & preset XML" },
-            { id: "lightroom-prem", category: "design", brand: "Lightroom", brandClass: "brand-prime", brandIcon: "fas fa-sliders", name: "Adobe Lightroom Premium", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Masking tools & preset cloud Pro" },
-            { id: "picsart-gold", category: "design", brand: "Picsart", brandClass: "brand-am", brandIcon: "fas fa-paint-brush", name: "Picsart Gold VIP", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Stiker, font Pro & hapus background AI" },
-            { id: "vsco-prem", category: "design", brand: "VSCO", brandClass: "brand-capcut", brandIcon: "fas fa-camera", name: "VSCO X Plus Membership", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Filter analog & video color grading" },
-            { id: "remini-pro", category: "design", brand: "Remini", brandClass: "brand-vidio", brandIcon: "fas fa-wand-magic-sparkles", name: "Remini Pro AI Photo Enhancer", duration: "1 Bulan", price: 20000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Perjelas foto buram dengan AI HD" },
-            { id: "meitu-vip", category: "design", brand: "Meitu", brandClass: "brand-apple", brandIcon: "fas fa-magic", name: "Meitu VIP Pro", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Retouch wajah & beauty filter AI" },
-            { id: "wink-vip", category: "design", brand: "Wink", brandClass: "brand-hbo", brandIcon: "fas fa-video", name: "Wink VIP Video Retouch", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Perjelas kualitas video HD otomatis" },
-            { id: "dazzcam-pro", category: "design", brand: "Dazz Cam", brandClass: "brand-viu", brandIcon: "fas fa-camera-retro", name: "Dazz Cam Vintage Pro", duration: "Lifetime", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Efek kamera retro & film analog" },
-            { id: "polarr-pro", category: "design", brand: "Polarr", brandClass: "brand-bstation", brandIcon: "fas fa-adjust", name: "Polarr Pro 24", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Filter warna & koreksi foto presisi" },
-            { id: "ibispaint-prem", category: "design", brand: "Ibis Paint", brandClass: "brand-prime", brandIcon: "fas fa-pen", name: "Ibis Paint X Prime", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Buka seluruh brush, font & material" },
-
-            // AI & Edukasi & Bacaan
-            { id: "chatgpt-plus", category: "ai-edu", brand: "ChatGPT", brandClass: "brand-chatgpt", brandIcon: "fas fa-robot", name: "ChatGPT Plus (GPT-4o)", duration: "1 Bulan", price: 45000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akses model AI terbaru & analisis file" },
-            { id: "gemini-adv", category: "ai-edu", brand: "Gemini", brandClass: "brand-disney", brandIcon: "fas fa-wand-magic-sparkles", name: "Google Gemini Advanced", duration: "1 Bulan", price: 40000, stock: "Ready Stock", warranty: "Bergaransi", desc: "AI Google Pro dengan konteks luas" },
-            { id: "duolingo-plus", category: "ai-edu", brand: "Duolingo", brandClass: "brand-duolingo", brandIcon: "fas fa-feather", name: "Duolingo Super (Plus)", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Belajar bahasa bebas iklan & nyawa penuh" },
-            { id: "grammarly-prem", category: "ai-edu", brand: "Grammarly", brandClass: "brand-iqiyi", brandIcon: "fas fa-check-double", name: "Grammarly Premium", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Koreksi grammar Inggris & gaya bahasa" },
-            { id: "quillbot-prem", category: "ai-edu", brand: "Quillbot", brandClass: "brand-spotify", brandIcon: "fas fa-spell-check", name: "QuillBot Premium Paraphraser", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Parafrase tanpa batas & cek plagiarisme" },
-            { id: "scribd-prem", category: "ai-edu", brand: "Scribd", brandClass: "brand-prime", brandIcon: "fas fa-book-open", name: "Scribd / Everand Premium", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Akses ebook, audiobook & dokumen" },
-            { id: "wattpad-prem", category: "ai-edu", brand: "Wattpad", brandClass: "brand-ms365", brandIcon: "fas fa-book", name: "Wattpad Premium+", duration: "1 Bulan", price: 15000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Baca novel bebas iklan & Originals" },
-
-            // Utilities & Office
-            { id: "ms-365", category: "utility", brand: "MS 365", brandClass: "brand-ms365", brandIcon: "fab fa-microsoft", name: "Microsoft 365 + 1TB OneDrive", duration: "1 Tahun", price: 45000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Word, Excel, PowerPoint + Cloud 1TB" },
-            { id: "camscanner-prem", category: "utility", brand: "CamScanner", brandClass: "brand-chatgpt", brandIcon: "fas fa-id-card", name: "CamScanner Gold VIP", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Scan dokumen HD & OCR tanpa watermark" },
-            { id: "getc-prem", category: "utility", brand: "Getcontact", brandClass: "brand-zoom", brandIcon: "fas fa-address-book", name: "Getcontact Premium", duration: "1 Bulan", price: 18000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Lihat tag kontak & penelusur nomor" },
-            { id: "strava-prem", category: "utility", brand: "Strava", brandClass: "brand-ms365", brandIcon: "fas fa-person-running", name: "Strava Athlete Subscription", duration: "1 Bulan", price: 25000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Analisis olahraga, rute & leaderboard" },
-            { id: "zoom-pro", category: "utility", brand: "Zoom", brandClass: "brand-zoom", brandIcon: "fas fa-video", name: "Zoom Pro Meeting 100 Peserta", duration: "1 Bulan", price: 30000, stock: "Ready Stock", warranty: "Bergaransi", desc: "Meeting bebas batas 40 menit" }
-        ];
+        const DEFAULT_PRODUCTS = [];
         const DEFAULT_SNK_LIST = [];
         /*__MTSTORE_DATA_END__*/
 
@@ -1023,6 +1101,7 @@
         let currentSnkList = [];
         let cartItems = [];
         let currentFilterCategory = 'all';
+        let expandedBrandCards = {};
 
         let ownerTriggerClicks = 0;
         let ownerTriggerTimer = null;
@@ -1176,11 +1255,21 @@
             }
         }
 
+        function renderModalQuickApkChips() {
+            const bar = document.getElementById('modalQuickApkBar');
+            if (!bar) return;
+            bar.innerHTML = MASTER_APK_LIST.map(apk => {
+                const safeName = apk.name.replace(/'/g, "\\'");
+                return `<button type="button" onclick="quickPickApp('${safeName}', '${apk.category}')" class="px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-[11px] shrink-0 transition">${apk.name}</button>`;
+            }).join('');
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             hideToast();
             loadStorageData();
             loadCartData();
             applyStoreLogo();
+            renderModalQuickApkChips();
             renderProductGrid();
             updateCartBadges();
             checkStoreOperatingHours();
@@ -1197,13 +1286,13 @@
             if (viewName === 'info') {
                 if (catSec) catSec.classList.add('hidden');
                 if (infoSec) infoSec.classList.remove('hidden');
-                if (btnCat) btnCat.className = "px-3.5 py-2 rounded-xl text-xs font-bold text-blue-100 hover:text-white transition flex items-center gap-1.5";
-                if (btnInfo) btnInfo.className = "px-3.5 py-2 rounded-xl text-xs font-extrabold bg-white text-blue-700 shadow-sm transition flex items-center gap-1.5";
+                if (btnCat) btnCat.className = "px-4 py-2 rounded-lg text-xs font-semibold text-blue-100 hover:text-white transition";
+                if (btnInfo) btnInfo.className = "px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition";
             } else {
                 if (infoSec) infoSec.classList.add('hidden');
                 if (catSec) catSec.classList.remove('hidden');
-                if (btnCat) btnCat.className = "px-3.5 py-2 rounded-xl text-xs font-extrabold bg-white text-blue-700 shadow-sm transition flex items-center gap-1.5";
-                if (btnInfo) btnInfo.className = "px-3.5 py-2 rounded-xl text-xs font-bold text-blue-100 hover:text-white transition flex items-center gap-1.5";
+                if (btnCat) btnCat.className = "px-4 py-2 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition";
+                if (btnInfo) btnInfo.className = "px-4 py-2 rounded-lg text-xs font-semibold text-blue-100 hover:text-white transition";
             }
         }
 
@@ -1223,7 +1312,7 @@
                 if (profileContainer) profileContainer.innerHTML = DEFAULT_LOGO_SVG_HEADER;
             }
 
-            const customAnnounce = safeGetStorage('mtstore_announcement_text') || (typeof DEFAULT_ANNOUNCEMENT_TEXT !== 'undefined' ? DEFAULT_ANNOUNCEMENT_TEXT : 'Official Digital Subscription Catalog');
+            const customAnnounce = safeGetStorage('mtstore_announcement_text') || (typeof DEFAULT_ANNOUNCEMENT_TEXT !== 'undefined' ? DEFAULT_ANNOUNCEMENT_TEXT : 'MTStore Digital Premium');
             const announceEl = document.getElementById('topAnnouncementText');
             const announceInput = document.getElementById('customAnnouncementInput');
             if (announceEl) announceEl.textContent = customAnnounce;
@@ -1258,7 +1347,7 @@
             const announceInput = document.getElementById('customAnnouncementInput');
             const val = announceInput && announceInput.value.trim()
                 ? announceInput.value.trim()
-                : 'Official Digital Subscription Catalog';
+                : 'MTStore Digital Premium';
             safeSetStorage('mtstore_announcement_text', val);
             applyStoreLogo();
             showToast("Subjudul toko diperbarui");
@@ -1281,17 +1370,17 @@
             const mode = safeGetStorage('mtstore_status_mode') || (typeof DEFAULT_STORE_STATUS_MODE !== 'undefined' ? DEFAULT_STORE_STATUS_MODE : 'auto');
 
             if (mode === 'open') {
-                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0";
+                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shrink-0";
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Buka`;
                 return;
             }
             if (mode === 'slow') {
-                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 shrink-0";
+                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200/80 shrink-0";
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Slow Respon`;
                 return;
             }
             if (mode === 'closed') {
-                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-200 shrink-0";
+                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200/80 shrink-0";
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Tutup Sementara`;
                 return;
             }
@@ -1303,13 +1392,13 @@
             const hour = wibTime.getHours();
 
             if (day === 1) {
-                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-200 shrink-0";
+                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200/80 shrink-0";
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Libur (Senin)`;
             } else if (hour >= 8 && hour < 22) {
-                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0";
+                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shrink-0";
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Buka`;
             } else {
-                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 shrink-0";
+                badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200/80 shrink-0";
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Tutup (08.00)`;
             }
         }
@@ -1318,7 +1407,7 @@
             const savedVersion = safeGetStorage('mtstore_data_version');
             if (savedVersion !== STORE_DATA_VERSION) {
                 safeSetStorage('mtstore_data_version', STORE_DATA_VERSION);
-                safeSetStorage('mtstore_products_v10', JSON.stringify(DEFAULT_PRODUCTS));
+                safeSetStorage('mtstore_announcement_text', DEFAULT_ANNOUNCEMENT_TEXT);
                 if (DEFAULT_CUSTOM_LOGO_URL) {
                     safeSetStorage('mtstore_custom_logo_url', DEFAULT_CUSTOM_LOGO_URL);
                 }
@@ -1338,7 +1427,7 @@
         }
 
         // ==========================================
-        // FITUR INVOICE ORDER & KERANJANG
+        // FITUR INVOICE ORDER & KERANJANG (QRIS)
         // ==========================================
         function loadCartData() {
             try {
@@ -1491,7 +1580,7 @@
 
             if (cartItems.length === 0) {
                 container.innerHTML = `
-                    <div class="py-10 text-center text-slate-400 space-y-1">
+                    <div class="py-8 text-center text-slate-400 space-y-1">
                         <p class="text-xs font-bold text-slate-700">Belum ada paket layanan yang dipilih</p>
                         <p class="text-[11px]">Ketuk salah satu paket pada kartu aplikasi untuk membuat Invoice Pesanan.</p>
                     </div>
@@ -1502,22 +1591,22 @@
             container.innerHTML = cartItems.map(item => {
                 const durText = item.duration && item.duration !== '-' ? ` &bull; ${item.duration}` : '';
                 const warBadge = item.warranty === 'No Garansi'
-                    ? `<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">No Garansi</span>`
-                    : `<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">Bergaransi</span>`;
+                    ? `<span class="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">No Garansi</span>`
+                    : `<span class="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">Bergaransi</span>`;
                 return `
-                <div class="p-3 rounded-2xl slot-3d-item flex items-center justify-between gap-3">
+                <div class="p-3 rounded-xl pkg-module-3d flex items-center justify-between gap-3">
                     <div class="min-w-0 flex-1">
                         <div class="flex items-center gap-1.5">
-                            <span class="font-extrabold text-slate-900 text-xs capitalize">${item.brand}</span>
+                            <span class="font-bold text-slate-900 text-xs capitalize">${item.brand}</span>
                             ${warBadge}
                         </div>
-                        <p class="text-[11px] font-semibold text-slate-600 truncate mt-0.5">${item.name}${durText}</p>
+                        <p class="text-[11px] font-medium text-slate-600 truncate mt-0.5">${item.name}${durText}</p>
                         <p class="text-xs font-extrabold text-blue-700 mt-0.5 tabular-price">${formatRupiah(item.price * item.qty)}</p>
                     </div>
                     <div class="flex items-center gap-1 shrink-0">
-                        <button type="button" onclick="updateCartQty('${item.cartKey}', -1)" class="w-7 h-7 rounded-lg bg-white border border-blue-200 font-bold text-slate-700 hover:bg-blue-50 flex items-center justify-center">-</button>
-                        <span class="w-6 text-center font-extrabold text-xs text-slate-900 tabular-price">${item.qty}</span>
-                        <button type="button" onclick="updateCartQty('${item.cartKey}', 1)" class="w-7 h-7 rounded-lg bg-white border border-blue-200 font-bold text-blue-700 hover:bg-blue-50 flex items-center justify-center">+</button>
+                        <button type="button" onclick="updateCartQty('${item.cartKey}', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 flex items-center justify-center">-</button>
+                        <span class="w-6 text-center font-bold text-xs text-slate-900 tabular-price">${item.qty}</span>
+                        <button type="button" onclick="updateCartQty('${item.cartKey}', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 font-bold text-blue-700 hover:bg-blue-50 flex items-center justify-center">+</button>
                         <button type="button" onclick="removeCartItem('${item.cartKey}')" class="w-7 h-7 rounded-lg text-slate-400 hover:text-rose-600 flex items-center justify-center ml-0.5">
                             <i class="fas fa-trash-can text-[11px]"></i>
                         </button>
@@ -1541,7 +1630,7 @@
                 return `${i + 1}. ${item.brand} — ${item.name}${durPart}${warPart}\n   ${item.qty}x @ ${formatRupiah(item.price)} = ${subTotal}`;
             }).join('\n');
 
-            return `Halo Admin MTStore\n\nBerikut rincian pesanan saya (${refCode}):\n\n${lines}\n\n• Total Pembayaran: ${formatRupiah(totalPrice)}${buyerNote}\n\nMohon info metode pembayarannya. Terima kasih!`;
+            return `Halo Admin MTStore Digital Premium\n\nBerikut rincian pesanan saya (${refCode}):\n\n${lines}\n\n• Total Pembayaran: ${formatRupiah(totalPrice)}\n• Metode Pembayaran: QRIS All Payment${buyerNote}\n\nMohon kirimkan kode QRIS untuk pembayarannya. Terima kasih!`;
         }
 
         function copyInvoiceOrderText() {
@@ -1578,70 +1667,166 @@
                 return `${i + 1}. *${encodeURIComponent(item.brand)} — ${encodeURIComponent(item.name)}*${encodeURIComponent(durPart)}${encodeURIComponent(warPart)}%0A   ${item.qty}x @ ${encodeURIComponent(formatRupiah(item.price))} = *${encodeURIComponent(subTotal)}*`;
             }).join('%0A');
 
-            const text = `Halo Admin *MTStore*%0A%0ABerikut rincian pesanan saya (*${encodeURIComponent(refCode)}*):%0A%0A${lines}%0A%0A• *Total Pembayaran: ${encodeURIComponent(formatRupiah(totalPrice))}*${buyerNote}%0A%0AMohon info metode pembayarannya. Terima kasih!`;
+            const text = `Halo Admin *MTStore Digital Premium*%0A%0ABerikut rincian pesanan saya (*${encodeURIComponent(refCode)}*):%0A%0A${lines}%0A%0A• *Total Pembayaran: ${encodeURIComponent(formatRupiah(totalPrice))}*%0A• *Metode Pembayaran: QRIS All Payment*${buyerNote}%0A%0AMohon kirimkan kode QRIS untuk pembayarannya. Terima kasih!`;
             window.open(`https://wa.me/${WA_ADMIN_NUMBER}?text=${text}`, '_blank');
         }
 
-        function confirmResetDefault() {
-            currentProducts = [...DEFAULT_PRODUCTS];
-            safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
-            renderOwnerProductsList();
-            renderProductGrid();
-            showToast("48 paket katalog default berhasil dimuat");
-            scheduleGithubPush();
+        function askBrandPriceWA(brandName) {
+            const text = `Halo Admin *MTStore Digital Premium*%0ASaya ingin menanyakan daftar plan & harga untuk layanan aplikasi *${encodeURIComponent(brandName)}*.`;
+            window.open(`https://wa.me/${WA_ADMIN_NUMBER}?text=${text}`, '_blank');
         }
 
         function formatRupiah(num) {
             return "Rp " + Number(num).toLocaleString('id-ID');
         }
 
+        function toggleBrandCardExpand(brandKey) {
+            expandedBrandCards[brandKey] = !expandedBrandCards[brandKey];
+            const searchInput = document.getElementById('catalogSearchInput');
+            renderProductGrid(currentFilterCategory, searchInput ? searchInput.value : '');
+        }
+
+        // ==========================================
+        // BUILD FULL 42 APK GROUPS + CUSTOM PLANS
+        // ==========================================
+        function getAllMergedBrandGroups() {
+            const groupsMap = new Map();
+
+            // 1. Seed all 42 Official APKs from MASTER_APK_LIST
+            MASTER_APK_LIST.forEach(apk => {
+                groupsMap.set(apk.key, {
+                    brandKey: apk.key,
+                    brandName: apk.name,
+                    category: apk.category,
+                    aliases: apk.aliases || [],
+                    variants: []
+                });
+            });
+
+            // 2. Attach all owner-created plans/variants to their matching APK (or create new custom APK group if outside the 42)
+            currentProducts.forEach(p => {
+                const normKey = normalizeMasterBrandKey(p.brand);
+                if (!groupsMap.has(normKey)) {
+                    groupsMap.set(normKey, {
+                        brandKey: normKey,
+                        brandName: p.brand,
+                        category: p.category || 'streaming',
+                        aliases: [normKey],
+                        variants: []
+                    });
+                }
+                groupsMap.get(normKey).variants.push(p);
+            });
+
+            return Array.from(groupsMap.values());
+        }
+
+        // ==========================================
+        // SMART CATEGORY BAR WITH LIVE COUNTS
+        // ==========================================
+        function renderCategoryFilterBar() {
+            const bar = document.getElementById('categoryFilterBar');
+            if (!bar) return;
+
+            const allGroups = getAllMergedBrandGroups();
+            const catCounts = {
+                'streaming': 0,
+                'music': 0,
+                'design': 0,
+                'ai-edu': 0,
+                'utility': 0
+            };
+
+            allGroups.forEach(g => {
+                if (catCounts[g.category] !== undefined) {
+                    catCounts[g.category]++;
+                }
+            });
+
+            const activeCategories = Object.keys(CATEGORY_LABELS).filter(cat => catCounts[cat] > 0);
+
+            const allBtnClass = currentFilterCategory === 'all'
+                ? 'catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-sapphire-3d text-white shrink-0 flex items-center gap-1.5'
+                : 'catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-porcelain-3d shrink-0 flex items-center gap-1.5';
+
+            let html = `
+                <button type="button" onclick="filterCatalog('all')" class="${allBtnClass}">
+                    <span>Semua APK</span>
+                    <span class="px-1.5 py-0.2 rounded text-[10px] tabular-price ${currentFilterCategory === 'all' ? 'bg-white/20 text-white' : 'bg-blue-50 text-blue-700'}">${allGroups.length}</span>
+                </button>
+            `;
+
+            activeCategories.forEach(cat => {
+                const count = catCounts[cat];
+                const isSelected = currentFilterCategory === cat;
+                const btnClass = isSelected
+                    ? 'catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-sapphire-3d text-white shrink-0 flex items-center gap-1.5'
+                    : 'catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-porcelain-3d shrink-0 flex items-center gap-1.5';
+                const badgeClass = isSelected ? 'bg-white/20 text-white' : 'bg-blue-50 text-blue-700';
+
+                html += `
+                    <button type="button" onclick="filterCatalog('${cat}')" class="${btnClass}">
+                        <span>${CATEGORY_LABELS[cat]}</span>
+                        <span class="px-1.5 py-0.2 rounded text-[10px] tabular-price ${badgeClass}">${count}</span>
+                    </button>
+                `;
+            });
+
+            bar.innerHTML = html;
+        }
+
         // ==========================================
         // RENDER 3D PORCELAIN WHITE-BLUE CATALOG
         // ==========================================
         function renderProductGrid(filter = currentFilterCategory, query = '') {
+            renderCategoryFilterBar();
+
             const container = document.getElementById('productGrid');
             if (!container) return;
 
-            let filtered = filter === 'all'
-                ? [...currentProducts]
-                : currentProducts.filter(p => p.category === filter);
+            let brandGroups = getAllMergedBrandGroups();
 
-            if (query && query.trim() !== '') {
-                const q = query.toLowerCase().trim();
-                filtered = filtered.filter(p =>
-                    p.name.toLowerCase().includes(q) ||
-                    p.brand.toLowerCase().includes(q) ||
-                    p.desc.toLowerCase().includes(q)
-                );
+            if (currentFilterCategory !== 'all') {
+                brandGroups = brandGroups.filter(g => g.category === currentFilterCategory);
             }
 
-            const brandGroupsMap = new Map();
-            filtered.forEach(p => {
-                const key = p.brand.trim().toLowerCase();
-                if (!brandGroupsMap.has(key)) {
-                    brandGroupsMap.set(key, {
-                        brandKey: key,
-                        brandName: p.brand,
-                        category: p.category,
-                        variants: []
-                    });
-                }
-                brandGroupsMap.get(key).variants.push(p);
-            });
+            const hasQuery = Boolean(query && query.trim() !== '');
+            if (hasQuery) {
+                const q = query.toLowerCase().trim();
+                brandGroups = brandGroups.filter(g => {
+                    const matchBrand = g.brandName.toLowerCase().includes(q) || g.brandKey.includes(q) || (g.aliases && g.aliases.some(a => a.includes(q)));
+                    const matchVar = g.variants.some(v => v.name.toLowerCase().includes(q) || (v.desc || '').toLowerCase().includes(q));
+                    return matchBrand || matchVar;
+                });
+            }
 
-            let brandGroups = Array.from(brandGroupsMap.values());
-
-            const sortMode = document.getElementById('catalogSortSelect') ? document.getElementById('catalogSortSelect').value : 'default';
+            const sortMode = document.getElementById('catalogSortSelect') ? document.getElementById('catalogSortSelect').value : 'name-asc';
             if (sortMode === 'price-asc') {
-                brandGroups.sort((a, b) => Math.min(...a.variants.map(v => v.price)) - Math.min(...b.variants.map(v => v.price)));
+                brandGroups.sort((a, b) => {
+                    const minA = a.variants.length > 0 ? Math.min(...a.variants.map(v => v.price)) : 999999999;
+                    const minB = b.variants.length > 0 ? Math.min(...b.variants.map(v => v.price)) : 999999999;
+                    return minA - minB;
+                });
             } else if (sortMode === 'price-desc') {
-                brandGroups.sort((a, b) => Math.max(...b.variants.map(v => v.price)) - Math.max(...a.variants.map(v => v.price)));
+                brandGroups.sort((a, b) => {
+                    const maxA = a.variants.length > 0 ? Math.max(...a.variants.map(v => v.price)) : 0;
+                    const maxB = b.variants.length > 0 ? Math.max(...b.variants.map(v => v.price)) : 0;
+                    return maxB - maxA;
+                });
             } else if (sortMode === 'name-asc') {
                 brandGroups.sort((a, b) => a.brandName.localeCompare(b.brandName));
+            } else {
+                // 'default': APKs with plans come first, then alphabetical
+                brandGroups.sort((a, b) => {
+                    if ((a.variants.length > 0) !== (b.variants.length > 0)) {
+                        return a.variants.length > 0 ? -1 : 1;
+                    }
+                    return a.brandName.localeCompare(b.brandName);
+                });
             }
 
             if (brandGroups.length === 0) {
-                container.innerHTML = `<div class="col-span-full py-12 text-center text-slate-500 text-xs font-semibold card-3d-porcelain rounded-3xl">Layanan atau paket yang dicari belum tersedia dalam katalog.</div>`;
+                container.innerHTML = `<div class="col-span-full py-12 text-center text-slate-500 text-xs font-semibold porcelain-card-3d rounded-2xl">Aplikasi dengan kata kunci tersebut tidak ditemukan.</div>`;
                 return;
             }
 
@@ -1651,87 +1836,121 @@
             });
 
             container.innerHTML = brandGroups.map(group => {
-                const brandTile = getBrandTileHtml(group.brandName, "w-12 h-12");
+                const brandTile = getBrandTileHtml(group.brandName, "w-11 h-11");
                 const catLabel = CATEGORY_LABELS[group.category] || "Layanan Digital";
-                const allOut = group.variants.every(v => v.stock === "Habis");
+                const totalVars = group.variants.length;
+                const hasVariants = totalVars > 0;
+                const allOut = hasVariants && group.variants.every(v => v.stock === "Habis");
+                const isExpanded = Boolean(expandedBrandCards[group.brandKey] || hasQuery);
+                const visibleVariants = (!isExpanded && totalVars > 4) ? group.variants.slice(0, 4) : group.variants;
+                const isMultiVariant = visibleVariants.length >= 2;
+                const cardDomId = 'brand-card-' + group.brandKey.replace(/[^a-z0-9]/g, '-');
+                const safeBrandKey = group.brandKey.replace(/'/g, "\\'");
+                const safeBrandName = group.brandName.replace(/'/g, "\\'");
 
                 return `
-                <div class="card-3d-porcelain rounded-3xl flex flex-col justify-between">
+                <div id="${cardDomId}" class="porcelain-card-3d rounded-2xl flex flex-col justify-between transition-all">
                     <div>
-                        <!-- 3D Blue-White Card Header -->
-                        <div class="card-header-tint px-5 py-4 flex items-center justify-between gap-3">
-                            <div class="flex items-center gap-3.5 min-w-0">
+                        <!-- 3D Porcelain Card Header -->
+                        <div class="porcelain-card-header px-4 sm:px-5 py-3.5 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0">
                                 ${brandTile}
                                 <div class="min-w-0">
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-blue-600 block truncate">${catLabel}</span>
-                                    <h3 class="text-base font-extrabold text-slate-900 capitalize tracking-tight truncate">${group.brandName}</h3>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 block truncate">${catLabel}</span>
+                                    <h3 class="text-[15.5px] font-extrabold text-slate-900 tracking-tight truncate">${group.brandName}</h3>
                                 </div>
                             </div>
-                            <span class="inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 ${allOut ? 'bg-rose-50 text-rose-600 border border-rose-200' : 'bg-white text-blue-700 border border-blue-200 shadow-2xs'}">
-                                <span class="w-1.5 h-1.5 rounded-full ${allOut ? 'bg-rose-500' : 'bg-blue-600'}"></span>
-                                ${allOut ? 'Habis' : `${group.variants.length} Paket`}
-                            </span>
+                            ${hasVariants ? `
+                                <span class="inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-0.5 rounded-full shrink-0 ${allOut ? 'bg-rose-50 text-rose-600 border border-rose-200' : 'bg-blue-50/80 text-blue-700 border border-blue-200/70'}">
+                                    <span class="w-1.5 h-1.5 rounded-full ${allOut ? 'bg-rose-500' : 'bg-blue-600'}"></span>
+                                    ${allOut ? 'Habis' : `${totalVars} Plan`}
+                                </span>
+                            ` : `
+                                <span class="inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-0.5 rounded-full shrink-0 bg-emerald-50 text-emerald-700 border border-emerald-200/70">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+                                </span>
+                            `}
                         </div>
 
-                        <!-- 3D Tactile Variant Slots inside Card -->
-                        <div class="p-4 space-y-2.5">
-                            ${group.variants.map(v => {
-                                const isOut = v.stock === "Habis";
-                                const selectedQty = cartQtyMap[v.id] || 0;
-                                const isSelected = selectedQty > 0;
-                                const shortName = v.name.replace(new RegExp('^' + group.brandName + '\\s*', 'i'), '').trim() || v.name;
-                                const hasDur = v.duration && v.duration.trim() !== '' && v.duration.trim() !== '-';
-                                const cleanDesc = (v.desc || '').replace(/^nogar$/i, 'Tanpa garansi');
-                                const subInfo = [hasDur ? v.duration : '', cleanDesc].filter(Boolean).join(' • ');
-                                const resolvedWar = resolveWarrantyStatus(v);
-                                const isNoWarranty = resolvedWar === 'No Garansi';
-                                const warBadge = isNoWarranty
-                                    ? `<span class="text-[9.5px] font-bold px-2 py-0.5 rounded-md bg-slate-200/90 text-slate-700 border border-slate-300 shrink-0">No Garansi</span>`
-                                    : `<span class="text-[9.5px] font-bold px-2 py-0.5 rounded-md bg-blue-100 text-blue-700 border border-blue-200 shrink-0">Bergaransi</span>`;
+                        <!-- Card Body: 2x2 Variant Matrix if plans exist, or Direct WA Inquiry Slot if plans not yet input -->
+                        ${hasVariants ? `
+                            <div class="p-3.5 sm:p-4 grid ${isMultiVariant ? 'grid-cols-2' : 'grid-cols-1'} gap-2.5">
+                                ${visibleVariants.map((v, vIdx) => {
+                                    const isOut = v.stock === "Habis";
+                                    const selectedQty = cartQtyMap[v.id] || 0;
+                                    const isSelected = selectedQty > 0;
+                                    const shortName = v.name.replace(new RegExp('^' + group.brandName + '\\s*', 'i'), '').trim() || v.name;
+                                    const hasDur = v.duration && v.duration.trim() !== '' && v.duration.trim() !== '-';
+                                    const rawDesc = (v.desc || '').trim();
+                                    const cleanDesc = rawDesc === '-' ? '' : rawDesc.replace(/^nogar$/i, 'Tanpa garansi');
+                                    const subInfo = [hasDur ? v.duration : '', cleanDesc].filter(Boolean).join(' • ');
+                                    const resolvedWar = resolveWarrantyStatus(v);
+                                    const isNoWarranty = resolvedWar === 'No Garansi';
+                                    const warBadge = isNoWarranty
+                                        ? `<span class="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200 shrink-0">No Garansi</span>`
+                                        : `<span class="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80 shrink-0">Bergaransi</span>`;
 
-                                return `
-                                <div onclick="${isOut ? '' : `addToCart('${v.id}', false)`}" class="slot-3d-item rounded-2xl p-3.5 flex items-center justify-between gap-3 ${isOut ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${isSelected ? 'is-selected' : ''}">
-                                    <div class="min-w-0 flex-1">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span class="text-xs sm:text-[13px] font-extrabold text-slate-900 leading-snug">${shortName}</span>
-                                            ${warBadge}
-                                        </div>
-                                        ${subInfo ? `<p class="text-[11px] font-medium text-slate-500 mt-1 leading-snug">${subInfo}</p>` : ''}
-                                    </div>
-                                    <div class="flex items-center gap-2.5 shrink-0">
-                                        <span class="text-xs sm:text-sm font-extrabold text-blue-700 tabular-price">${formatRupiah(v.price)}</span>
-                                        ${isOut ? `
-                                            <span class="px-2 py-1 rounded-lg bg-slate-200 text-slate-500 font-bold text-[10px]">Habis</span>
-                                        ` : isSelected ? `
-                                            <div class="flex items-center gap-1 bg-white border border-blue-300 rounded-xl px-1.5 py-0.5 shadow-2xs" onclick="event.stopPropagation()">
-                                                <button type="button" onclick="stepVariantFromRow(event, '${v.id}', -1)" class="w-5 h-5 rounded text-slate-700 hover:bg-blue-50 font-bold text-xs flex items-center justify-center">-</button>
-                                                <span class="text-[11px] font-extrabold text-blue-700 px-1 tabular-price">${selectedQty}x</span>
-                                                <button type="button" onclick="stepVariantFromRow(event, '${v.id}', 1)" class="w-5 h-5 rounded text-blue-700 hover:bg-blue-50 font-bold text-xs flex items-center justify-center">+</button>
+                                    const spanClass = (isMultiVariant && visibleVariants.length % 2 === 1 && vIdx === visibleVariants.length - 1) ? 'col-span-2' : '';
+
+                                    return `
+                                    <div onclick="${isOut ? '' : `addToCart('${v.id}', false)`}" class="pkg-module-3d ${spanClass} rounded-xl p-3 flex flex-col justify-between gap-2 ${isOut ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${isSelected ? 'is-selected' : ''}">
+                                        <div>
+                                            <div class="flex items-start justify-between gap-1.5">
+                                                <span class="text-xs font-bold text-slate-900 leading-snug line-clamp-2">${shortName}</span>
+                                                ${warBadge}
                                             </div>
-                                        ` : `
-                                            <span class="w-7 h-7 rounded-xl btn-3d-royal flex items-center justify-center">
-                                                <i class="fas fa-plus text-[10px]"></i>
-                                            </span>
-                                        `}
+                                            ${subInfo ? `<p class="text-[10.5px] text-slate-500 mt-1 leading-snug line-clamp-2">${subInfo}</p>` : ''}
+                                        </div>
+                                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-1.5">
+                                            <span class="text-xs sm:text-[13.5px] font-extrabold text-blue-700 tabular-price">${formatRupiah(v.price)}</span>
+                                            ${isOut ? `
+                                                <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-400 font-semibold text-[9.5px]">Habis</span>
+                                            ` : isSelected ? `
+                                                <div class="flex items-center gap-0.5 bg-white border border-blue-300 rounded-lg px-1 py-0.5 shadow-2xs" onclick="event.stopPropagation()">
+                                                    <button type="button" onclick="stepVariantFromRow(event, '${v.id}', -1)" class="w-5 h-5 rounded text-slate-700 hover:bg-blue-50 font-bold text-xs flex items-center justify-center">-</button>
+                                                    <span class="text-[10.5px] font-extrabold text-blue-700 px-1 tabular-price">${selectedQty}x</span>
+                                                    <button type="button" onclick="stepVariantFromRow(event, '${v.id}', 1)" class="w-5 h-5 rounded text-blue-700 hover:bg-blue-50 font-bold text-xs flex items-center justify-center">+</button>
+                                                </div>
+                                            ` : `
+                                                <span class="w-6 h-6 rounded-lg btn-sapphire-3d flex items-center justify-center shrink-0">
+                                                    <i class="fas fa-plus text-[9px]"></i>
+                                                </span>
+                                            `}
+                                        </div>
                                     </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        ` : `
+                            <div class="p-3.5 sm:p-4">
+                                <div onclick="askBrandPriceWA('${safeBrandName}')" class="pkg-module-3d rounded-xl p-3 flex items-center justify-between gap-3 cursor-pointer">
+                                    <div class="min-w-0 flex-1">
+                                        <span class="text-xs font-bold text-slate-800 block">Tersedia Berbagai Plan &amp; Durasi</span>
+                                        <span class="text-[10.5px] text-slate-500 block mt-0.5">Klik untuk cek daftar plan &amp; harga ${group.brandName}</span>
+                                    </div>
+                                    <span class="px-3 py-1.5 rounded-lg btn-porcelain-3d text-[11px] font-bold text-blue-700 shrink-0 flex items-center gap-1.5">
+                                        <i class="fab fa-whatsapp text-emerald-600 text-xs"></i> Cek Plan
+                                    </span>
                                 </div>
-                                `;
-                            }).join('')}
-                        </div>
+                            </div>
+                        `}
                     </div>
+
+                    ${totalVars > 4 && !hasQuery ? `
+                        <div class="px-4 pb-3.5">
+                            <button type="button" onclick="toggleBrandCardExpand('${safeBrandKey}')" class="w-full py-2 rounded-xl btn-porcelain-3d text-[11px] font-bold flex items-center justify-center gap-1.5">
+                                <span>${isExpanded ? 'Ringkas Tampilan Plan' : `Lihat Semua ${totalVars} Plan ${group.brandName}`}</span>
+                                <i class="fas fa-chevron-${isExpanded ? 'up' : 'down'} text-[9px]"></i>
+                            </button>
+                        </div>
+                    ` : ''}
                 </div>
                 `;
             }).join('');
         }
 
-        function filterCatalog(category, btnEl) {
+        function filterCatalog(category) {
             currentFilterCategory = category;
-            document.querySelectorAll('.catalog-filter-btn').forEach(btn => {
-                btn.className = "catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-white shrink-0";
-            });
-            if (btnEl) {
-                btnEl.className = "catalog-filter-btn px-3.5 py-1.5 rounded-xl btn-3d-royal text-white shrink-0";
-            }
             const query = document.getElementById('catalogSearchInput') ? document.getElementById('catalogSearchInput').value : '';
             renderProductGrid(category, query);
         }
@@ -1755,8 +1974,21 @@
         }
 
         function openDirectAdminChat() {
-            const text = `Halo Admin *MTStore*%0ASaya ingin bertanya / memesan layanan aplikasi digital dari katalog resmi.`;
+            const text = `Halo Admin *MTStore Digital Premium*%0ASaya ingin bertanya / memesan layanan aplikasi digital dari katalog resmi.`;
             window.open(`https://wa.me/${WA_ADMIN_NUMBER}?text=${text}`, '_blank');
+        }
+
+        function openOwnerAccessDirect() {
+            const savedPin = _unlockedPinSession || safeGetStorage('mtstore_owner_key_session') || '';
+            if (savedPin && _simpleHash(savedPin) === _OWNER_PIN_HASH) {
+                openOwnerPanel();
+                return;
+            }
+            const modal = document.getElementById('ownerPinModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('ownerPinInput').value = '';
+            document.getElementById('ownerPinInput').focus();
         }
 
         function handleSecretLogoTap() {
@@ -1765,11 +1997,7 @@
 
             if (ownerTriggerClicks >= 5) {
                 ownerTriggerClicks = 0;
-                const modal = document.getElementById('ownerPinModal');
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.getElementById('ownerPinInput').value = '';
-                document.getElementById('ownerPinInput').focus();
+                openOwnerAccessDirect();
                 return;
             }
             ownerTriggerTimer = setTimeout(() => { ownerTriggerClicks = 0; }, 1600);
@@ -1844,9 +2072,9 @@
             syncOwnerInputsToState();
             hideToast();
             const customLogo = safeGetStorage('mtstore_custom_logo_url') || '';
-            const customAnnounce = safeGetStorage('mtstore_announcement_text') || 'Official Digital Subscription Catalog';
+            const customAnnounce = safeGetStorage('mtstore_announcement_text') || 'MTStore Digital Premium';
             const statusMode = safeGetStorage('mtstore_status_mode') || 'auto';
-            const newVersion = "v19_" + Date.now();
+            const newVersion = "v23_" + Date.now();
 
             const replacementBlock = `/*__MTSTORE_DATA_START__*/\n` +
                 `        const STORE_DATA_VERSION = ${JSON.stringify(newVersion)};\n` +
@@ -1901,7 +2129,7 @@
             if (!box) return;
             const payload = {
                 logoUrl: safeGetStorage('mtstore_custom_logo_url') || '',
-                announcementText: safeGetStorage('mtstore_announcement_text') || 'Official Digital Subscription Catalog',
+                announcementText: safeGetStorage('mtstore_announcement_text') || 'MTStore Digital Premium',
                 storeStatusMode: safeGetStorage('mtstore_status_mode') || 'auto',
                 products: currentProducts
             };
@@ -1986,10 +2214,10 @@
 
             if (badge) {
                 if (token.trim().length > 10) {
-                    badge.className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-emerald-600 text-white";
+                    badge.className = "px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-600 text-white";
                     badge.textContent = `Auto-Sync Aktif (${repo})`;
                 } else {
-                    badge.className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-amber-100 text-amber-800 border border-amber-300";
+                    badge.className = "px-2 py-0.5 rounded text-[9px] font-bold bg-amber-100 text-amber-800 border border-amber-300";
                     badge.textContent = "Belum Terhubung";
                 }
             }
@@ -2096,7 +2324,7 @@
                 const livePayload = {
                     updatedAt: nowTs,
                     logoUrl: safeGetStorage('mtstore_custom_logo_url') || '',
-                    announcementText: safeGetStorage('mtstore_announcement_text') || 'Official Digital Subscription Catalog',
+                    announcementText: safeGetStorage('mtstore_announcement_text') || 'MTStore Digital Premium',
                     storeStatusMode: safeGetStorage('mtstore_status_mode') || 'auto',
                     products: currentProducts,
                     snkList: currentSnkList
@@ -2161,6 +2389,7 @@
             modal.classList.add('flex');
         }
 
+        // Render all 42 Official APKs inside Admin Panel so the owner can add plans to any APK in 1 tap!
         function renderOwnerProductsList() {
             const list = document.getElementById('ownerProductList');
             if (!list) return;
@@ -2168,58 +2397,81 @@
             const searchEl = document.getElementById('ownerProductSearchInput');
             const q = searchEl && searchEl.value ? searchEl.value.trim().toLowerCase() : '';
 
-            const rowsHtml = currentProducts.map((p, idx) => {
-                if (q && !p.brand.toLowerCase().includes(q) && !p.name.toLowerCase().includes(q) && !p.desc.toLowerCase().includes(q)) {
-                    return '';
-                }
-                const warVal = resolveWarrantyStatus(p);
-                const safeBrandAttr = p.brand.replace(/'/g, "\\'");
+            const allGroups = getAllMergedBrandGroups();
+
+            const htmlBlocks = allGroups.map(group => {
+                const matchGroup = !q || group.brandName.toLowerCase().includes(q) || group.brandKey.includes(q) || (group.aliases && group.aliases.some(a => a.includes(q))) || group.variants.some(v => v.name.toLowerCase().includes(q));
+                if (!matchGroup) return '';
+
+                const safeBrandAttr = group.brandName.replace(/'/g, "\\'");
+                const tile = getBrandTileHtml(group.brandName, "w-8 h-8");
+                const catLabel = CATEGORY_LABELS[group.category] || 'Layanan Digital';
+
+                const variantsHtml = group.variants.map(v => {
+                    const idx = currentProducts.findIndex(item => item.id === v.id);
+                    if (idx === -1) return '';
+                    const warVal = resolveWarrantyStatus(v);
+                    return `
+                    <div class="p-2.5 rounded-lg bg-white border border-slate-200 space-y-2 mt-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <input type="hidden" id="edit-brand-${idx}" value="${v.brand}">
+                            <span class="text-[11px] font-bold text-blue-700">${v.name}</span>
+                            <div class="flex items-center gap-1.5">
+                                <select id="edit-warranty-${idx}" class="bg-slate-50 border border-slate-300 rounded px-2 py-0.5 text-[10px] font-semibold text-blue-700">
+                                    <option value="Bergaransi" ${warVal === 'Bergaransi' ? 'selected' : ''}>Bergaransi</option>
+                                    <option value="No Garansi" ${warVal === 'No Garansi' ? 'selected' : ''}>No Garansi</option>
+                                </select>
+                                <select id="edit-stock-${idx}" class="bg-slate-50 border border-slate-300 rounded px-2 py-0.5 text-[10px] font-semibold">
+                                    <option value="Ready Stock" ${v.stock === 'Ready Stock' ? 'selected' : ''}>Tersedia</option>
+                                    <option value="Habis" ${v.stock === 'Habis' ? 'selected' : ''}>Habis</option>
+                                </select>
+                                <button type="button" onclick="deleteProductItem('${v.id}')" class="text-rose-500 hover:text-rose-700 px-1.5 py-0.5" title="Hapus Plan">
+                                    <i class="fas fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <label class="text-[9px] text-slate-500 font-bold block">Jenis Plan / Akun</label>
+                                <input type="text" id="edit-name-${idx}" value="${v.name}" class="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 text-slate-900 font-medium">
+                            </div>
+                            <div>
+                                <label class="text-[9px] text-slate-500 font-bold block">Durasi</label>
+                                <input type="text" id="edit-dur-${idx}" value="${v.duration}" class="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 text-slate-900 font-medium">
+                            </div>
+                            <div>
+                                <label class="text-[9px] text-slate-500 font-bold block">Harga (Rp)</label>
+                                <input type="number" id="edit-price-${idx}" value="${v.price}" class="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 font-bold text-blue-700 tabular-price">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[9px] text-slate-500 font-bold block">Keterangan Tambahan (Opsional)</label>
+                            <input type="text" id="edit-desc-${idx}" value="${v.desc || ''}" placeholder="Boleh dikosongkan" class="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 text-slate-900 text-[11px]">
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+
                 return `
-                <div class="p-3 rounded-2xl bg-blue-50/50 border border-blue-200 space-y-2">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <div class="flex items-center gap-1.5">
-                            <input type="text" id="edit-brand-${idx}" value="${p.brand}" class="bg-white border border-blue-200 rounded-lg px-2 py-0.5 text-[11px] font-bold text-slate-900 w-28" title="Nama Aplikasi">
-                            <button type="button" onclick="openAddVariantForBrand('${safeBrandAttr}', '${p.category}')" class="text-[10px] font-bold text-blue-700 bg-blue-100 hover:bg-blue-200 border border-blue-200 px-2 py-0.5 rounded-lg transition" title="Tambah Varian untuk ${p.brand}">
-                                + Varian
-                            </button>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            ${tile}
+                            <div class="min-w-0">
+                                <span class="text-xs font-extrabold text-slate-900 block truncate">${group.brandName}</span>
+                                <span class="text-[10px] text-slate-500 block">${catLabel} &bull; ${group.variants.length} Plan Terisi</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-1.5">
-                            <select id="edit-warranty-${idx}" class="bg-white border border-blue-200 rounded-lg px-2 py-1 text-[10px] font-bold text-blue-700">
-                                <option value="Bergaransi" ${warVal === 'Bergaransi' ? 'selected' : ''}>Bergaransi</option>
-                                <option value="No Garansi" ${warVal === 'No Garansi' ? 'selected' : ''}>No Garansi</option>
-                            </select>
-                            <select id="edit-stock-${idx}" class="bg-white border border-blue-200 rounded-lg px-2 py-1 text-[10px] font-bold">
-                                <option value="Ready Stock" ${p.stock === 'Ready Stock' ? 'selected' : ''}>Tersedia</option>
-                                <option value="Habis" ${p.stock === 'Habis' ? 'selected' : ''}>Habis</option>
-                            </select>
-                            <button type="button" onclick="deleteProductItem('${p.id}')" class="text-rose-500 hover:text-rose-700 px-1.5 py-1" title="Hapus Varian">
-                                <i class="fas fa-trash-can"></i>
-                            </button>
-                        </div>
+                        <button type="button" onclick="openAddVariantForBrand('${safeBrandAttr}', '${group.category}')" class="px-3 py-1.5 rounded-lg btn-sapphire-3d text-white font-semibold text-[11px] shrink-0">
+                            + Tambah Plan
+                        </button>
                     </div>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div>
-                            <label class="text-[9px] text-slate-500 font-bold block">Nama Paket</label>
-                            <input type="text" id="edit-name-${idx}" value="${p.name}" class="w-full bg-white border border-blue-200 rounded-lg px-2 py-1 text-slate-900 font-semibold">
-                        </div>
-                        <div>
-                            <label class="text-[9px] text-slate-500 font-bold block">Durasi</label>
-                            <input type="text" id="edit-dur-${idx}" value="${p.duration}" class="w-full bg-white border border-blue-200 rounded-lg px-2 py-1 text-slate-900 font-semibold">
-                        </div>
-                        <div>
-                            <label class="text-[9px] text-slate-500 font-bold block">Harga (Rp)</label>
-                            <input type="number" id="edit-price-${idx}" value="${p.price}" class="w-full bg-white border border-blue-200 rounded-lg px-2 py-1 font-extrabold text-blue-700 tabular-price">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="text-[9px] text-slate-500 font-bold block">Spesifikasi Singkat</label>
-                        <input type="text" id="edit-desc-${idx}" value="${p.desc}" class="w-full bg-white border border-blue-200 rounded-lg px-2 py-1 text-slate-900 text-[11px]">
-                    </div>
+                    ${variantsHtml}
                 </div>
                 `;
             }).filter(Boolean).join('');
 
-            list.innerHTML = rowsHtml || `<div class="py-8 text-center text-slate-400 text-xs">Belum ada produk. Klik "+ Tambah Paket" atau "Muat 48 Paket".</div>`;
+            list.innerHTML = htmlBlocks || `<div class="py-8 text-center text-slate-400 text-xs">APK tidak ditemukan.</div>`;
         }
 
         function deleteProductItem(id) {
@@ -2228,7 +2480,7 @@
             safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
             renderOwnerProductsList();
             renderProductGrid();
-            showToast("Varian produk dihapus");
+            showToast("Plan dihapus");
             scheduleGithubPush();
         }
 
@@ -2237,15 +2489,42 @@
             safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
             renderOwnerProductsList();
             renderProductGrid();
-            showToast("Seluruh produk dikosongkan");
+            showToast("Seluruh plan direset");
             scheduleGithubPush();
+        }
+
+        function quickPickApp(appName, cat) {
+            const brandInput = document.getElementById('newProdBrand');
+            const catSelect = document.getElementById('newProdCategory');
+            const nameInput = document.getElementById('newProdName');
+            if (brandInput) brandInput.value = appName;
+            if (catSelect && cat) catSelect.value = cat;
+            if (nameInput) nameInput.focus();
+        }
+
+        function quickPickPlanName(planText) {
+            const nameInput = document.getElementById('newProdName');
+            if (nameInput) {
+                nameInput.value = planText;
+                if (planText.toLowerCase().includes('crack') || planText.toLowerCase().includes('mod')) {
+                    const warSelect = document.getElementById('newProdWarranty');
+                    if (warSelect) warSelect.value = 'No Garansi';
+                }
+            }
+        }
+
+        function quickPickDuration(durText) {
+            const durInput = document.getElementById('newProdDuration');
+            if (durInput) durInput.value = durText;
         }
 
         function openAddProductModal() {
             const brandInput = document.getElementById('newProdBrand');
             const nameInput = document.getElementById('newProdName');
+            const descInput = document.getElementById('newProdDesc');
             if (brandInput) brandInput.value = '';
             if (nameInput) nameInput.value = '';
+            if (descInput) descInput.value = '';
             const modal = document.getElementById('addProductModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -2256,9 +2535,11 @@
             const brandInput = document.getElementById('newProdBrand');
             const catSelect = document.getElementById('newProdCategory');
             const nameInput = document.getElementById('newProdName');
+            const descInput = document.getElementById('newProdDesc');
             if (brandInput) brandInput.value = brandName || '';
             if (catSelect && category) catSelect.value = category;
             if (nameInput) nameInput.value = '';
+            if (descInput) descInput.value = '';
             const modal = document.getElementById('addProductModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -2271,38 +2552,59 @@
             modal.classList.remove('flex');
         }
 
-        function submitNewProductForm(e) {
-            e.preventDefault();
-            const brand = document.getElementById('newProdBrand').value.trim();
-            const category = document.getElementById('newProdCategory').value;
-            const name = document.getElementById('newProdName').value.trim();
-            const warranty = document.getElementById('newProdWarranty').value;
-            const duration = document.getElementById('newProdDuration').value.trim();
-            const price = parseInt(document.getElementById('newProdPrice').value) || 20000;
-            const desc = document.getElementById('newProdDesc').value.trim();
+        function submitNewProductForm(e, keepOpenForSameApp = false) {
+            if (e) e.preventDefault();
+            const brandEl = document.getElementById('newProdBrand');
+            const catEl = document.getElementById('newProdCategory');
+            const nameEl = document.getElementById('newProdName');
+            const warEl = document.getElementById('newProdWarranty');
+            const durEl = document.getElementById('newProdDuration');
+            const priceEl = document.getElementById('newProdPrice');
+            const descEl = document.getElementById('newProdDesc');
+
+            const brand = brandEl ? brandEl.value.trim() : '';
+            const category = catEl ? catEl.value : 'streaming';
+            const name = nameEl ? nameEl.value.trim() : '';
+            const warranty = warEl ? warEl.value : 'Bergaransi';
+            const duration = durEl ? durEl.value.trim() : '1 Bulan';
+            const price = priceEl ? parseInt(priceEl.value) : 0;
+            const desc = descEl ? descEl.value.trim() : '';
+
+            if (!brand || !name || !price) {
+                showToast("Lengkapi Nama APK, Jenis Plan & Harga", "error");
+                return;
+            }
 
             const newProduct = {
-                id: "custom-" + Date.now(),
+                id: "custom-" + Date.now() + "-" + Math.floor(Math.random() * 1000),
                 category: category,
                 brand: brand,
                 brandClass: "brand-general",
                 brandIcon: "fas fa-cube",
                 name: name,
-                duration: duration,
+                duration: duration || '-',
                 price: price,
                 stock: "Ready Stock",
                 warranty: resolveWarrantyStatus({ name, desc, warranty }),
                 desc: desc
             };
 
-            currentProducts.unshift(newProduct);
+            currentProducts.push(newProduct);
             safeSetStorage('mtstore_products_v10', JSON.stringify(currentProducts));
-            
-            closeAddProductModal();
             renderOwnerProductsList();
             renderProductGrid();
-            showToast("Paket baru ditambahkan");
             scheduleGithubPush();
+
+            if (keepOpenForSameApp) {
+                if (nameEl) nameEl.value = '';
+                if (priceEl) priceEl.value = '';
+                if (descEl) descEl.value = '';
+                if (nameEl) nameEl.focus();
+                showToast(`Plan ${brand} disimpan — silakan isi plan berikutnya`);
+            } else {
+                closeAddProductModal();
+                showToast(`Plan ${brand} berhasil ditambahkan`);
+            }
         }
 
         function closeOwnerPanel() {
@@ -2341,7 +2643,7 @@
             if (icon) {
                 icon.className = type === "error"
                     ? "fas fa-circle-exclamation text-rose-400 text-xs"
-                    : "fas fa-check text-sky-300 text-xs";
+                    : "fas fa-check text-sky-400 text-xs";
             }
             toast.classList.remove('hidden');
             toast.classList.add('flex');
