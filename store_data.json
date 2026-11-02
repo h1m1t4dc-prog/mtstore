@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793634380289,
+  "updatedAt": 1793634488826,
   "logoUrl": "",
   "announcementText": "Official Digital Subscription Catalog",
   "storeStatusMode": "open",
@@ -315,6 +315,19 @@
       "stock": "Ready Stock",
       "warranty": "Bergaransi",
       "desc": "akun penjual"
+    },
+    {
+      "id": "custom-1793634488294-649",
+      "category": "ai-edu",
+      "brand": "Duolingo",
+      "brandClass": "brand-general",
+      "brandIcon": "fas fa-cube",
+      "name": "Private",
+      "duration": "1 Bulan",
+      "price": 2500,
+      "stock": "Ready Stock",
+      "warranty": "Bergaransi",
+      "desc": "akun penjual (plan super)"
     }
   ],
   "snkList": []
